@@ -1,3 +1,5 @@
+import { ILocal } from "./components/local";
+
 type weekDayType =
 	'Mon'
 	| 'Tue'
@@ -26,6 +28,8 @@ export interface IEvent {
 	name: string;
 	company_id: string;
 	company_name: string;
-	description: string;
+	description?: string;
+	event_photo_url?: string;
+	local: ILocal;
 	days_long: IDaysLong[];
 };
