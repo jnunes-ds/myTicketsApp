@@ -26,7 +26,10 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { ThemeProvider } from 'styled-components';
+import { AppProvider } from '~/hooks';
 import { Routes } from './src/routes';
+import { useThemeHook } from '~/hooks/Theme';
 
 const Section: React.FC<{
   title: string;
@@ -57,6 +60,7 @@ const Section: React.FC<{
 };
 
 const App = () => {
+	const { theme } = useThemeHook();
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -64,9 +68,11 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-			<Routes />
-    </SafeAreaView>
+		<ThemeProvider theme={theme}>
+			<AppProvider>
+				<Routes />
+			</AppProvider>
+		</ThemeProvider>
   );
 };
 
