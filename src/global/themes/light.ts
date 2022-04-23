@@ -35,7 +35,7 @@ export default {
 			tinny: 11,
 			small1: 13,
 			small2: 15,
-			reguçar: 17,
+			regular: 17,
 			medium: 22,
 			big: 28,
 			huge: 34

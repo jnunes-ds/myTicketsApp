@@ -4,10 +4,12 @@ import darkTheme from '~/global/themes/dark';
 
 type ChosenThemeType = 'light' | 'dark';
 type ThemeType = typeof lightTheme;
+type BarThemeType = `${ChosenThemeType}-content`;
 
 interface ThemeContextData {
 	theme: ThemeType;
 	setTheme(chosenTheme: ChosenThemeType): void;
+	chosenTheme: BarThemeType;
 }
 
 interface Props {
@@ -17,19 +19,29 @@ interface Props {
 const ThemeContext = createContext({} as ThemeContextData);
 
 function ThemeHookProvider({ children }: Props) {
+	const [chosenTheme, _setChosenTheme] = useState<BarThemeType>('dark-content');
 	const [theme, _setTheme] = useState<ThemeType>(lightTheme);
 
 	function setTheme(chosenTheme: ChosenThemeType) {
 		let currentTheme: ThemeType = lightTheme;
-		if (chosenTheme === 'light') currentTheme = lightTheme;
-		if (chosenTheme === 'dark') currentTheme = darkTheme;
+		let currentStatusBar:BarThemeType = 'dark-content'
+		if (chosenTheme === 'light') {
+			currentTheme = lightTheme;
+			currentStatusBar = 'dark-content';
+		};
+		if (chosenTheme === 'dark') {
+			currentTheme = darkTheme;
+			currentStatusBar = 'light-content';
+		};
 		_setTheme(currentTheme);
+		_setChosenTheme(currentStatusBar);
 	}
 
 	return (
 		<ThemeContext.Provider
 			value={{
 				theme, 
+				chosenTheme,
 				setTheme
 			}}
 		>
