@@ -9,7 +9,7 @@ export function LogIn(){
 
 	return (
 		<Container>
-			<Title testID='title' >Hello World</Title>
+			<Title testID='title'>Hello World</Title>
 		</Container>
 	);
 }

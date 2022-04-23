@@ -1,3 +1,4 @@
+import React from 'react'
 import { LogIn } from '~/screens/public/LogIn';
 import { render } from '@testing-library/react-native'
 import { NavigationContainer } from '@react-navigation/native';
@@ -16,14 +17,13 @@ const Providers: React.FC = ({ children }) => {
 
 describe('LogIn screen', () => {
 	it('Sould be rendered on screen', () => {
-		const { getByTestId } = render(
-			<LogIn />,
-			{
+		const { getByTestId, debug } = render(
+			<LogIn />,{
 				wrapper: Providers
 			}
 		);
 
 		const title = getByTestId('title');
-		expect(title.props.value).toEqual('Hello World');
+		expect(title.props.children).toEqual('Hello World');
 	});
 });
