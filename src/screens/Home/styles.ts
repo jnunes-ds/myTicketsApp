@@ -4,5 +4,5 @@ import {RFValue} from 'react-native-responsive-fontsize';
 export const Container = styled.View``;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(20)}px;
+  font-size: ${RFValue(50)}px;
 `;
