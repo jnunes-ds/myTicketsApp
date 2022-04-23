@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Home } from '~/screens/private/Home';
 import { useThemeHook } from '~/hooks/Theme';
 import { ThemeProvider } from 'styled-components';
-import { LogIn } from '~/screens/public/LogIn';
+import { Register } from '~/screens/public/Register';
 
 
 export function Routes(){
@@ -17,7 +17,7 @@ export function Routes(){
 					backgroundColor={'transparent'} 
 					barStyle={chosenTheme}
 				/>
-				<LogIn />
+				<Register />
 			</NavigationContainer>
 		</ThemeProvider>
 	)

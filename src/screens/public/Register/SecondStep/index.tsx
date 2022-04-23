@@ -12,7 +12,7 @@ import {
 		Footer
 } from './styles'
 
-export function LogIn(){
+export function SecondStep(){
 	const {
 		register,
 		setValue,
@@ -28,36 +28,28 @@ export function LogIn(){
 
 	return (
 		<Container>
-			<Title testID='title'>LogIn</Title>
 			<Content>
 				<MyInput
-					title='Email or username' 
+					title='Name' 
 					control={control}
-					name='login'
-					keyboardType='email-address'
-					autoComplete='email'
+					name='name'
 					// error="Erro"
 				/>
-				<MyInput 
-					title='password'
+				<MyInput
+					title='CPF' 
 					control={control}
-					name='Password'
-					isPasswordInput
+					name='cpf'
+					keyboardType='number-pad'
 					// error="Erro"
 				/>
-				<SmallTexts
-					havUnderlinde
-				>
-					Forgot Password?
-				</SmallTexts>
 				<Button 
-					title='Log In'
+					title='Next'
 					type='default'
-					onPress={handleSubmit(onSubmit)}
+					onPress={() => {}}
 				/>
 				<Footer>
 					<SmallTexts>
-						Don’t have an account?
+						Already have an account?
 					</SmallTexts>
 					<TouchableWithoutFeedback
 						onPress={() => {}}
@@ -65,7 +57,7 @@ export function LogIn(){
 						<SmallTexts
 							havUnderlinde
 						>
-						{''}Create Account
+						{''}Log In
 					</SmallTexts>
 					</TouchableWithoutFeedback>
 				</Footer>

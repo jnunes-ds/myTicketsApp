@@ -12,7 +12,7 @@ import {
 		Footer
 } from './styles'
 
-export function LogIn(){
+export function FirstStep(){
 	const {
 		register,
 		setValue,
@@ -28,36 +28,50 @@ export function LogIn(){
 
 	return (
 		<Container>
-			<Title testID='title'>LogIn</Title>
 			<Content>
 				<MyInput
-					title='Email or username' 
+					title='Email' 
 					control={control}
-					name='login'
+					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
 					// error="Erro"
 				/>
-				<MyInput 
-					title='password'
+				<SmallTexts>
+					We need your email for membership transactions. We{'\n'}
+					will definitely not send mail about marketing.
+				</SmallTexts>
+				<MyInput
+					title='Username' 
 					control={control}
-					name='Password'
+					name='username'
+					// error="Erro"
+				/>
+				<MyInput
+					title='Email' 
+					control={control}
+					name='email'
+					keyboardType='email-address'
+					autoComplete='email'
+					// error="Erro"
+				/>
+				<MyInput
+					title='Password' 
+					control={control}
+					name='password'
+					keyboardType='visible-password'
+					autoComplete='password'
 					isPasswordInput
 					// error="Erro"
 				/>
-				<SmallTexts
-					havUnderlinde
-				>
-					Forgot Password?
-				</SmallTexts>
 				<Button 
-					title='Log In'
+					title='Next'
 					type='default'
-					onPress={handleSubmit(onSubmit)}
+					onPress={() => {}}
 				/>
 				<Footer>
 					<SmallTexts>
-						Don’t have an account?
+						Already have an account?
 					</SmallTexts>
 					<TouchableWithoutFeedback
 						onPress={() => {}}
@@ -65,7 +79,7 @@ export function LogIn(){
 						<SmallTexts
 							havUnderlinde
 						>
-						{''}Create Account
+						{' '}Log In
 					</SmallTexts>
 					</TouchableWithoutFeedback>
 				</Footer>
