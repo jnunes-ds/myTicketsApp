@@ -1,6 +1,7 @@
 # OSX
 #
 .DS_Store
+coverage/
 
 # Xcode
 #
@@ -59,3 +60,6 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
+
+# Coverage
+coverage/
