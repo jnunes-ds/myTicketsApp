@@ -5,7 +5,7 @@ export interface IBank {
 	cardNumber: number;
 	agency: number;
 	account: number;
-	number: number;
+	digit: number;
 	validity: string;
 	securityNumber?: number;
 };

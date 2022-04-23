@@ -7,4 +7,5 @@ export interface IUser {
 	username: string;
 	cpf: string;
 	bank: IBank;
+	profile_picture_url: string;
 };
