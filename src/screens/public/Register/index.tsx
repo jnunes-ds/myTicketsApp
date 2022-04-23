@@ -1,4 +1,5 @@
 import React from 'react';
+import { BackButton } from '~/components';
 import { FirstStep } from './FirstStep';
 import { SecondStep } from './SecondStep';
 
@@ -17,6 +18,7 @@ export function Register(){
 
 	return (
 		<Container>
+			<BackButton />
 			<Title> Create Account </Title>
 			<Content>
 				{/* <FirstStep /> */}

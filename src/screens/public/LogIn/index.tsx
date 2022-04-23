@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import { useForm } from 'react-hook-form';
-import { Button, Input as MyInput } from '~/components';
+import { BackButton, Button, Input as MyInput } from '~/components';
 import { ISignInProps } from '~/models/signin';
 
 import {
@@ -28,6 +28,7 @@ export function LogIn(){
 
 	return (
 		<Container>
+			<BackButton onPress={() => {}} />
 			<Title testID='title'>LogIn</Title>
 			<Content>
 				<MyInput
