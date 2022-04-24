@@ -30,7 +30,7 @@ export const Image = styled.ImageBackground`
 export const Title = styled.Text`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.family.primaryBold};
-		font-size: ${RFValue(theme.fonts.sizes.medium)};
+		font-size: ${RFValue(theme.fonts.sizes.medium)}px;
 		color: ${theme.colors.fontAndIcon.white}
 	`};
 `;

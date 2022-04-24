@@ -13,7 +13,11 @@ import {
 	PickDaySelectorList,
 	TypeOfTicketContainer,
 	TypeOfTicketList,
-	Scroll
+	Scroll,
+	TotalContainer,
+	TotalContent,
+	TotalTitle,
+	TotalValue,
 } from './styles';
 
 interface DaysListProps {
@@ -64,32 +68,36 @@ export function BuyTicketModal({ daysList }: Props){
 						<Scroll showsVerticalScrollIndicator={false} >
 							<Title> Choose an available day</Title>
 							<PickDaysSelectorContainer>
-								<PickDaySelectorList 
-									data={daysList}
-									// @ts-ignore
-									renderItem={({item}: {item: DaysListProps}) => (
-										<PickDaySelector 
+								{
+									daysList.map(item => (
+										<PickDaySelector
+											key={item.weekDay} 
 											isSelected={item.weekDay === selectedDay}
 											title={item}
 											onPress={() => handlePickDay(item.weekDay)} 
 										/>
-									)}
-								/>
+									))
+								}
 							</PickDaysSelectorContainer>
 							<TypeOfTicketContainer>
-								<TypeOfTicketList
-									data={ticketsTypeList}
-									// @ts-ignore
-									renderItem={({item}:{item:ITicketType}) => (
-										<TypeOfTicketCard 
+								{
+									ticketsTypeList.map(item => (
+										<TypeOfTicketCard
+											key={item.title} 
 											title={item.title}
 											image_url={item.image_url}
 											onPress={() => handlePickTicketType(item.title)} 
 											selected={selectedType === item.title}
 										/>
-									)}
-								/>
+									))
+								}
 							</TypeOfTicketContainer>
+							<TotalContainer>
+								<TotalContent>
+									<TotalTitle>Total</TotalTitle>
+									<TotalValue>RS 150,00</TotalValue>
+								</TotalContent>
+							</TotalContainer>
 							<Button title='Buy Ticket' onPress={() => {}} type='success' />
 						</Scroll>
 					</Content>
