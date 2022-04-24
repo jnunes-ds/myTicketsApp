@@ -33,5 +33,7 @@ export const CategoriesListTitle = styled.Text`
 	`};
 `;
 
-export const CategoriesList = styled.FlatList``;
+export const CategoriesList = styled.FlatList`
+	margin-top: 20px;
+`;
 

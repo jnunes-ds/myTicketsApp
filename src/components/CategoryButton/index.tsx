@@ -3,21 +3,24 @@ import React from 'react';
 import {
 		Container,
 		Image,
-		Title
+		Title,
+		ImageContent
 } from './styles'
 
 interface Props{
 		title: string;
-		imageUri: string
+		imageUrl: string
 }
 
-export function CategoryButton({ title, imageUri } : Props){
+export function CategoryButton({ title, imageUrl } : Props){
 
 		return (
 				<Container>
-					<Image source={{
-						uri: imageUri
-					}}/>
+					<ImageContent>
+						<Image source={{
+							uri: imageUrl
+						}}/>
+					</ImageContent>
 						<Title> {title} </Title>
 				</Container>
 		);

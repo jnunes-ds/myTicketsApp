@@ -2,29 +2,22 @@ import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 export const Container = styled.TouchableOpacity`
-	width: 75px;
-	height: 98px;
-	margin-left: 12px;
+	border-radius: 10px;
+	overflow: hidden;
 `;
 
-export const ImageContent = styled.View`
-	width: 75px;
-	height: 75px;
-	justify-content: center;
-	align-items: center;
-`;
 
-export const Image = styled.Image`
-	width: 100%;
-	height: 100%;
-	border-radius: 50px;
+export const Image = styled.ImageBackground`
+	width: 150px;
+	height: 225px;
+	border-radius: 10px;
 `;
 
 export const Title = styled.Text`
 	text-align: center;
 	${({ theme }) => css`
 		font-family: ${theme.fonts.family.secondaryBold};
-		font-size: ${RFValue(theme.fonts.sizes.small1)}px;
+		font-size: ${RFValue(theme.fonts.sizes.medium)}px;
 		color: ${theme.colors.fill.secondary};
 	`};
 `;
