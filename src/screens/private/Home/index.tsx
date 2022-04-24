@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 
 import {
 	Container,
-	Header, 
+	Header,
+	Content, 
 	Title,
 	CategoriesListContainer,
 	CategoriesListTitle,
@@ -66,48 +67,52 @@ export function Home() {
 				<MenuButton onPress={() => {}} />
 				<SeaarchButton onPress={() => {}} />
 			</Header>
-			<Title>Events</Title>
-			<CategoriesListContainer>
-				<CategoriesListTitle>Categories</CategoriesListTitle>
-				<CategoriesList
-					data={list}
-					renderItem={({ item, index }) => {
-						const Item: List = item as unknown as List;
-						return (
-						<CategoryButton
-							key={Item.id}
-							imageUrl={Item.imageUri}
-							title={Item.name} 
-						/>
-					)}}
-					horizontal
-					showsHorizontalScrollIndicator={false}
-				/>
-			</CategoriesListContainer>
-				{
-					list.map(ITEM => (
-						<CategoriesListContainer>
-							<CategoriesListTitle>Categories</CategoriesListTitle>
-							<CategoriesList
-								data={list}
-								renderItem={({ item, index }) => {
-									const Item: List = item as unknown as List; 
-									if (Item.name === ITEM.name) {
-										return (
-											<EventCard
-												key={Item.id}
-												imageUrl={Item.imageUri}
-												title={Item.name} 
-											/>
-										);
-									}
-								}}
-								horizontal
-								showsHorizontalScrollIndicator={false}
+			<Content 
+				showsVerticalScrollIndicator={false}
+			>
+				<Title>Events</Title>
+				<CategoriesListContainer>
+					<CategoriesListTitle>Categories</CategoriesListTitle>
+					<CategoriesList
+						data={list}
+						renderItem={({ item, index }) => {
+							const Item: List = item as unknown as List;
+							return (
+							<CategoryButton
+								key={Item.id}
+								imageUrl={Item.imageUri}
+								title={Item.name} 
 							/>
-						</CategoriesListContainer>
-					))
-				}
+						)}}
+						horizontal
+						showsHorizontalScrollIndicator={false}
+					/>
+				</CategoriesListContainer>
+					{
+						list.map(ITEM => (
+							<CategoriesListContainer>
+								<CategoriesListTitle>Categories</CategoriesListTitle>
+								<CategoriesList
+									data={list}
+									renderItem={({ item, index }) => {
+										const Item: List = item as unknown as List; 
+										if (Item.name === ITEM.name) {
+											return (
+												<EventCard
+													key={Item.id}
+													imageUrl={Item.imageUri}
+													title={Item.name} 
+												/>
+											);
+										}
+									}}
+									horizontal
+									showsHorizontalScrollIndicator={false}
+								/>
+							</CategoriesListContainer>
+						))
+					}
+			</Content>
     </Container>
   );
 }

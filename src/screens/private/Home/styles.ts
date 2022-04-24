@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import { Platform } from 'react-native';
 
-export const Container = styled.ScrollView`
+export const Container = styled.View`
 	flex: 1;
 	padding-horizontal: 24px;
 	${() => Platform.OS === 'ios' ? css`
@@ -21,6 +21,8 @@ export const Header = styled.View`
 	align-items: center;
 `;
 
+export const Content = styled.ScrollView``
+;
 export const Title = styled.Text`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.family.primaryBold};
