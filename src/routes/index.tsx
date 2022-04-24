@@ -5,7 +5,7 @@ import { Home } from '~/screens/private/Home';
 import { useThemeHook } from '~/hooks/Theme';
 import { ThemeProvider } from 'styled-components';
 import { Register } from '~/screens/public/Register';
-import { Profile, Search } from '~/screens/private';
+import { Event, Profile, Search } from '~/screens/private';
 
 
 export function Routes(){
@@ -18,7 +18,7 @@ export function Routes(){
 					backgroundColor={'transparent'} 
 					barStyle={chosenTheme}
 				/>
-				<Profile />
+				<Event />
 			</NavigationContainer>
 		</ThemeProvider>
 	)
