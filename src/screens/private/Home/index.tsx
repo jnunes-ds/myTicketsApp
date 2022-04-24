@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 
 import {
-	Container, 
+	Container,
+	Header, 
 	Title,
 	CategoriesListContainer,
 	CategoriesListTitle,
@@ -11,6 +12,8 @@ import {
 import { useThemeHook } from '~/hooks/Theme';
 import { CategoryButton } from '../../../components/CategoryButton/index';
 import { EventCard } from '../../../components/EventCard/index';
+import { SeaarchButton } from '~/components';
+import { MenuButton } from '~/components/MenuButton';
 
 interface Props {
   title: string;
@@ -20,6 +23,11 @@ interface List {
 	id: number;
 	name: string;
 	imageUri: string;
+}
+
+interface RenderItemProps {
+	item: List;
+	index: number;
 }
 
 export function Home() {
@@ -54,18 +62,24 @@ export function Home() {
 
   return (
     <Container>
+			<Header>
+				<MenuButton onPress={() => {}} />
+				<SeaarchButton onPress={() => {}} />
+			</Header>
 			<Title>Events</Title>
 			<CategoriesListContainer>
 				<CategoriesListTitle>Categories</CategoriesListTitle>
 				<CategoriesList
 					data={list}
-					renderItem={({ item, index }) => (
+					renderItem={({ item, index }) => {
+						const Item: List = item as unknown as List;
+						return (
 						<CategoryButton
-							key={item.id}
-							imageUrl={item.imageUri}
-							title={item.name} 
+							key={Item.id}
+							imageUrl={Item.imageUri}
+							title={Item.name} 
 						/>
-					)}
+					)}}
 					horizontal
 					showsHorizontalScrollIndicator={false}
 				/>
@@ -77,12 +91,13 @@ export function Home() {
 							<CategoriesList
 								data={list}
 								renderItem={({ item, index }) => {
-									if (item.name === ITEM.name) {
+									const Item: List = item as unknown as List; 
+									if (Item.name === ITEM.name) {
 										return (
 											<EventCard
-												key={item.id}
-												imageUrl={item.imageUri}
-												title={item.name} 
+												key={Item.id}
+												imageUrl={Item.imageUri}
+												title={Item.name} 
 											/>
 										);
 									}

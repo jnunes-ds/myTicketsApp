@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components/native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import { Platform } from 'react-native';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
 	flex: 1;
 	padding-horizontal: 24px;
 	${() => Platform.OS === 'ios' ? css`
@@ -11,6 +11,14 @@ export const Container = styled.View`
 		padding-top: 50px;
 	`};
 	background-color: ${({ theme }) => theme.colors.background.default};
+`;
+
+export const Header = styled.View`
+	flex-direction: row;
+	width: 100%;
+	height: 44px;
+	justify-content: space-between;
+	align-items: center;
 `;
 
 export const Title = styled.Text`
