@@ -9,7 +9,7 @@ interface Props{
 	onPress(): void;
 }
 
-export function SeaarchButton({ onPress }: Props){
+export function SearchButton({ onPress }: Props){
 
 		return (
 				<Container onPress={onPress} >

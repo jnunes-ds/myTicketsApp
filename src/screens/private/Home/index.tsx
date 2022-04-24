@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, ListRenderItem } from 'react-native';
 
 import {
 	Container,
@@ -13,8 +13,7 @@ import {
 import { useThemeHook } from '~/hooks/Theme';
 import { CategoryButton } from '../../../components/CategoryButton/index';
 import { EventCard } from '../../../components/EventCard/index';
-import { SeaarchButton } from '~/components';
-import { MenuButton } from '~/components/MenuButton';
+import { SearchButton, MenuButton } from '~/components';
 
 interface Props {
   title: string;
@@ -65,7 +64,7 @@ export function Home() {
     <Container>
 			<Header>
 				<MenuButton onPress={() => {}} />
-				<SeaarchButton onPress={() => {}} />
+				<SearchButton onPress={() => {}} />
 			</Header>
 			<Content 
 				showsVerticalScrollIndicator={false}
@@ -94,14 +93,13 @@ export function Home() {
 								<CategoriesListTitle>Categories</CategoriesListTitle>
 								<CategoriesList
 									data={list}
-									renderItem={({ item, index }) => {
-										const Item: List = item as unknown as List; 
+									renderItem={({ item }: { item:List }) => {
 										if (Item.name === ITEM.name) {
 											return (
 												<EventCard
-													key={Item.id}
-													imageUrl={Item.imageUri}
-													title={Item.name} 
+													key={item.id}
+													imageUrl={item.imageUri}
+													title={item.name} 
 												/>
 											);
 										}

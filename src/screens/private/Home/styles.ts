@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components/native';
+import { ListRenderItem } from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import { Platform } from 'react-native';
 
