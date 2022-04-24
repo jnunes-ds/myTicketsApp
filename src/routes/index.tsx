@@ -4,8 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Home } from '~/screens/private/Home';
 import { useThemeHook } from '~/hooks/Theme';
 import { ThemeProvider } from 'styled-components';
-import { Register } from '~/screens/public/Register';
-import { Event, Profile, Search } from '~/screens/private';
+import { Event, Profile, Search, Congratulations } from '~/screens/private';
 
 
 export function Routes(){
@@ -18,7 +17,7 @@ export function Routes(){
 					backgroundColor={'transparent'} 
 					barStyle={chosenTheme}
 				/>
-				<Event />
+				<Congratulations />
 			</NavigationContainer>
 		</ThemeProvider>
 	)
