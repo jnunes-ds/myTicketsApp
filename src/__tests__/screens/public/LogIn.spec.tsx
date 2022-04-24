@@ -7,11 +7,11 @@ import lightTheme from '~/global/themes/light';
 
 const Providers: React.FC = ({ children }) => {
 	return (
-	<NavigationContainer >
-		<ThemeProvider theme={lightTheme} >
-			{ children }
+		<ThemeProvider theme={lightTheme}>
+			<NavigationContainer>
+					{ children }
+			</NavigationContainer>
 		</ThemeProvider>
-	"</NavigationContainer>
 	);
 }
 

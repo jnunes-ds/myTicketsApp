@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { BackButton, Button, Input as MyInput } from '~/components';
 import { ISignInProps } from '~/models/signin';
 
@@ -37,14 +37,14 @@ export function LogIn(){
 					name='login'
 					keyboardType='email-address'
 					autoComplete='email'
-					// error="Erro"
+					error="Erro"
 				/>
 				<MyInput 
 					title='password'
 					control={control}
 					name='Password'
 					isPasswordInput
-					// error="Erro"
+					error="Erro"
 				/>
 				<SmallTexts
 					havUnderlinde
@@ -54,7 +54,7 @@ export function LogIn(){
 				<Button 
 					title='Log In'
 					type='default'
-					onPress={handleSubmit(onSubmit)}
+					onPress={handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
 				/>
 				<Footer>
 					<SmallTexts>

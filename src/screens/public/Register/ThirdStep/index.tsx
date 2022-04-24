@@ -35,28 +35,28 @@ export function ThirdStep(){
 					title='Bank' 
 					control={control}
 					name='bank'
-					// error="Erro"
+					error="Erro"
 				/>
 				<Input
 					title='Card Number' 
 					control={control}
 					name='card_number'
 					keyboardType='number-pad'
-					// error="Erro"
+					error="Erro"
 				/>
 				<Input
 					title='Agency' 
 					control={control}
 					name='agency'
 					keyboardType='number-pad'
-					// error="Erro"
+					error="Erro"
 				/>
 				<Input
 					title='Account' 
 					control={control}
 					name='account'
 					keyboardType='number-pad'
-					// error="Erro"
+					error="Erro"
 				/>
 				<Input
 					title='Digit' 
@@ -64,14 +64,14 @@ export function ThirdStep(){
 					name='digit'
 					keyboardType='number-pad'
 					maxLength={1}
-					// error="Erro"
+					error="Erro"
 				/>
 				<Input
 					title='Validity' 
 					control={control}
 					name='validity'
 					keyboardType='default'
-					// error="Erro"
+					error="Erro"
 				/>
 				<Input
 					title='Security Account' 
@@ -79,7 +79,7 @@ export function ThirdStep(){
 					name='digit'
 					keyboardType='number-pad'
 					maxLength={1}
-					// error="Erro"
+					error="Erro"
 				/>
 				<Button 
 					title='Create Account'

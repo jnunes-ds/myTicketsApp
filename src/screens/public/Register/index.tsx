@@ -18,7 +18,7 @@ export function Register(){
 
 	return (
 		<Container>
-			<BackButton />
+			<BackButton onPress={() => {}} />
 			<Title> Create Account </Title>
 			<Content>
 				{/* <FirstStep /> */}

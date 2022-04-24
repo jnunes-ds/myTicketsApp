@@ -35,7 +35,7 @@ export function FirstStep(){
 					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
-					// error="Erro"
+					error="Erro"
 				/>
 				<SmallTexts>
 					We need your email for membership transactions. We{'\n'}
@@ -45,7 +45,7 @@ export function FirstStep(){
 					title='Username' 
 					control={control}
 					name='username'
-					// error="Erro"
+					error="Erro"
 				/>
 				<MyInput
 					title='Email' 
@@ -53,7 +53,7 @@ export function FirstStep(){
 					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
-					// error="Erro"
+					error="Erro"
 				/>
 				<MyInput
 					title='Password' 
@@ -62,7 +62,7 @@ export function FirstStep(){
 					keyboardType='visible-password'
 					autoComplete='password'
 					isPasswordInput
-					// error="Erro"
+					error="Erro"
 				/>
 				<Button 
 					title='Next'

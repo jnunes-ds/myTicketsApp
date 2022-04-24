@@ -1,5 +1,5 @@
-import React from 'react';
-import { BackButton, Button } from '~/components';
+import React, { useState } from 'react';
+import { BackButton, Button, BuyTicketModal } from '~/components';
 import { DetailItem } from './components/DetailItem';
 
 import {
@@ -16,6 +16,26 @@ import {
 
 
 export function Event(){
+	const daysList = [
+		{
+			weekDay: 'Thu',
+			dayName: 'Thusday',
+			startsAt: '19:00',
+			endsAt: '22:00'
+		},
+		{
+			weekDay: 'Fri',
+			dayName: 'Friday',
+			startsAt: '19:00',
+			endsAt: '22:00'
+		},
+		{
+			weekDay: 'Sat',
+			dayName: 'Saturday',
+			startsAt: '15:00',
+			endsAt: '23:00'
+		},
+	]
 
 		return (
 				<Container>
@@ -62,6 +82,7 @@ export function Event(){
 									/>
 								</DetailsContent>
 							</DetailsContainer>
+							<BuyTicketModal daysList={daysList} />
 					</Content>
 				</Container>
 		);

@@ -33,14 +33,14 @@ export function SecondStep(){
 					title='Name' 
 					control={control}
 					name='name'
-					// error="Erro"
+					error="Erro"
 				/>
 				<MyInput
 					title='CPF' 
 					control={control}
 					name='cpf'
 					keyboardType='number-pad'
-					// error="Erro"
+					error="Erro"
 				/>
 				<Button 
 					title='Next'

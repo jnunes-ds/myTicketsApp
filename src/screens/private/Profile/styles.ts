@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { Platform } from 'react-native';
+import { ImageBackgroundProps, Platform } from 'react-native';
 
 export const Container = styled.View`
 	flex: 1;
@@ -34,7 +34,7 @@ margin-top: 20px;
 export const ProfilePhotoTitle = styled.Text`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.family.secondaryBold};
-		font-size: ${theme.fonts.sizes.small1};
+		font-size: ${theme.fonts.sizes.small1}px;
 		color: ${theme.colors.fontAndIcon.secondary};
 		text-transform: uppercase;
 	`};
@@ -57,7 +57,7 @@ export const ProfilePhotoContent = styled.View`
 	overflow: hidden;
 `;
 
-export const ProfilePhoto = styled.ImageBackground`
+export const ProfilePhoto = styled.ImageBackground<ImageBackgroundProps>`
 	width: 100%;
 	height: 100%;
 	justify-content: center;

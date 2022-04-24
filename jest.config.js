@@ -1,9 +1,12 @@
+
+
 module.exports = {
 	preset: "react-native",
 	testPathIgnorePatterns: [
 		"/node_modules/",
 		"/android/",
-		"/ios/"
+		"/ios/",
+		"node_modules/(?!(react-native-responsive-fontsize)/)"
 	],
 	setupFilesAfterEnv: [
 			"@testing-library/jest-native/extend-expect",
@@ -18,8 +21,8 @@ module.exports = {
 	coverageReporters: [
 		"lcov"
 	],
-	// transform: {
-  //   "^.+\\.jsx?$": "babel-jest", // Adding this line solved the issue
-  //   "^.+\\.tsx?$": "ts-jest"
-  // },
+	transform: {
+    "^.+\\.jsx?$": "babel-jest", // Adding this line solved the issue
+    "^.+\\.tsx?$": "ts-jest"
+  },
 }

@@ -93,6 +93,7 @@ export function Home() {
 								<CategoriesListTitle>Categories</CategoriesListTitle>
 								<CategoriesList
 									data={list}
+									// @ts-ignore
 									renderItem={({ item }: { item:List }) => {
 										if (item.name === ITEM.name) {
 											return (
