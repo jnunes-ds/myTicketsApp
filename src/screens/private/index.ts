@@ -5,3 +5,4 @@ export { Event } from './Event';
 export { Congratulations } from './Congratulations';
 export { Ticket } from './Ticket';
 export { QRCode } from './QRCode';
+export { MyTickets } from './MyTickets';

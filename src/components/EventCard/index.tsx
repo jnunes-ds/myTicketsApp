@@ -16,6 +16,7 @@ export function EventCard({ title, imageUrl }: Props){
 
 		return (
 				<Container>
+					{/* @ts-ignore */}
 						<Image 
 							source={{
 								uri: imageUrl

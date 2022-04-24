@@ -9,6 +9,7 @@ export interface ITicket {
 	event_id: string;
 	event_name:string;
 	user_id: string;
+	event_url?: string;
 	chosen_day: weekDayType;
 	local: ILocal;
 	currency: currencysType;
