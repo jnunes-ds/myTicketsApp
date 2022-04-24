@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 
-import {Container, Title} from './styles';
+import {
+	Container, 
+	Title,
+	CategoriesListContainer,
+	CategoriesListTitle,
+	CategoriesList,
+} from './styles';
 import { useThemeHook } from '~/hooks/Theme';
 
 interface Props {
@@ -12,18 +18,17 @@ export function Home() {
 	const { setTheme } = useThemeHook();
 
 	useEffect(() => {
-		setTheme('dark');
+		setTheme('light');
 	}, []);
 
   return (
     <Container>
-      <Title style={sheet.text}> Hello World </Title>
+			<Title>Events</Title>
+			<CategoriesListContainer>
+				<CategoriesListTitle>Categories</CategoriesListTitle>
+				<CategoriesList />
+			</CategoriesListContainer>
     </Container>
   );
 }
 
-const sheet = StyleSheet.create({
-	text: {
-		fontFamily: 'Roboto-Bold'
-	}
-});

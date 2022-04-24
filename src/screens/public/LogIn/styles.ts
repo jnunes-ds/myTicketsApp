@@ -42,5 +42,5 @@ export const SmallTexts = styled.Text<TextProps>`
 `;
 
 export const Footer = styled.View`
-	flex-direction: row;
+  flex-direction: row;
 `;

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { TextInputProps } from 'react-native';
 
 export const Container = styled.View`
 	margin-top: 20px;
@@ -15,7 +14,7 @@ export const Title = styled.Text`
 	`};
 `;
 
-export const ContentInput = styled.TextInput<TextInputProps>`
+export const ContentInput = styled.TextInput`
 	background-color: ${({ theme }) => theme.colors.background.primary};
 	width: 100%;
 	height: 44px;
