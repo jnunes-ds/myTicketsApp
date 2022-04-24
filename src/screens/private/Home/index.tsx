@@ -94,7 +94,7 @@ export function Home() {
 								<CategoriesList
 									data={list}
 									renderItem={({ item }: { item:List }) => {
-										if (Item.name === ITEM.name) {
+										if (item.name === ITEM.name) {
 											return (
 												<EventCard
 													key={item.id}
