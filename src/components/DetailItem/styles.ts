@@ -27,6 +27,10 @@ export const Title = styled.Text`
 	text-transform: uppercase;
 `;
 
+export const InfoContainer = styled.View`
+	flex-direction: row;
+`;
+
 export const Info = styled.Text`
 	${({ theme }) => css`
 		font-size: ${RFValue(theme.fonts.sizes.small1)}px;

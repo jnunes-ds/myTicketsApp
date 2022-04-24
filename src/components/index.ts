@@ -5,3 +5,8 @@ export { SearchButton } from './SearchButton';
 export { MenuButton } from './MenuButton';
 export { SearchBar } from './SearchBar';
 export { BuyTicketModal } from './BuyTicketModal';
+export { DetailItem } from './DetailItem';
+export { EventDetails } from './EventDetails';
+
+
+export type { EventDetailsProps } from './EventDetails';

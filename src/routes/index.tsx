@@ -17,7 +17,7 @@ export function Routes(){
 					backgroundColor={'transparent'} 
 					barStyle={chosenTheme}
 				/>
-				<Congratulations />
+				<Event />
 			</NavigationContainer>
 		</ThemeProvider>
 	)

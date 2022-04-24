@@ -4,12 +4,13 @@ import {
 		Container,
 		Content,
 		Title,
+		InfoContainer,
 		Info
 } from './styles'
 
 interface Props{
 		title: string;
-		info: string;
+		info: string | string[];
 }
 
 export function DetailItem({ title, info } : Props){
@@ -18,7 +19,15 @@ export function DetailItem({ title, info } : Props){
 				<Container>
 					<Content>
 						<Title> {title} </Title>
-						<Info>{info}</Info>
+						{
+							Array.isArray(info)
+								? <InfoContainer>
+										{info.map(item => (
+											<Info>{item}</Info>
+										))}
+									</InfoContainer>
+								: <Info>{info}</Info>
+						}
 					</Content>
 				</Container>
 		);

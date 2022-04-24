@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { BackButton, Button, BuyTicketModal } from '~/components';
-import { DetailItem } from './components/DetailItem';
+import { 
+	BackButton,
+	Button,
+	BuyTicketModal,
+	EventDetails,
+	EventDetailsProps 
+} from '~/components';
 
 import {
 		Container,
@@ -36,6 +41,15 @@ export function Event(){
 			endsAt: '23:00'
 		},
 	]
+	const eventDetails: EventDetailsProps = {
+		data: {
+			showTime: '14:30',
+			Address: 'Rua Alcobaça, 139, Resgate, Salvador, Bahia, Brasil, CEP: 41152-115.',
+			genres: ['Show', 'Religious'],
+			value: 150,
+			description: 'Show do povo de santo contra intolerância religiosa.'
+		}
+	};
 
 		return (
 				<Container>
@@ -60,28 +74,12 @@ export function Event(){
 							<DetailsContainer>
 								<DetailsTitle>Details</DetailsTitle>
 								<DetailsContent>
-									<DetailItem 
-										title='ShowTime'
-										info='14:30'
+									<EventDetails
+										data={eventDetails.data}
 									/>
-									<DetailItem 
-										title='Address'
-										info='Salvador, Bahia, Brasil, .'
-									/>
-									<DetailItem 
-										title='genres'
-										info='Show, Religious'
-									/>
-									<DetailItem 
-										title='Value'
-										info='143,00'
-									/>
-									<DetailItem 
-										title='description'
-										info='Show do povo de santo contra intolerância religiosa.'
-									/>
-								</DetailsContent>
+									</DetailsContent>
 							</DetailsContainer>
+							{/* @ts-ignore */}
 							<BuyTicketModal daysList={daysList} />
 					</Content>
 				</Container>
