@@ -1,5 +1,5 @@
 import { currencysType } from "./components/currency";
-import { GenresType } from "./components/genres";
+import { CategoriesType } from "./components/categories";
 import { ILocal } from "./components/local";
 import { TitketType } from "./components/ticketType";
 import { weekDayType } from "./components/weekDays";
@@ -39,5 +39,5 @@ export interface IEvent {
 	local: ILocal;
 	days_long: IDaysLong[];
 	prices: IPrice[];
-	genres: GenresType[];
+	categories: CategoriesType[];
 };

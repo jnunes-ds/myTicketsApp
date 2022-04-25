@@ -1,4 +1,4 @@
-import { GenresType } from "./components/genres";
+import { CategoriesType } from "./components/categories";
 import { weekDayType } from "./components/weekDays";
 import { IEvent } from "./event";
 import { ILocal } from './components/local';

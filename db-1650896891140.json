@@ -47,7 +47,7 @@
       "company_id": "ndfjoknfdjksofdspfm",
       "company_name": "Gustavo Almeida",
       "description": "Um show pra ficar na memória",
-			"event_photo_url": "https://t.ctcdn.com.br/n-xDEPJrW6smpfkbvjP--Ou5E2U=/1024x0/smart/filters:format(webp)/i393775.jpeg",
+      "event_photo_url": "https://t.ctcdn.com.br/n-xDEPJrW6smpfkbvjP--Ou5E2U=/1024x0/smart/filters:format(webp)/i393775.jpeg",
       "local": {
         "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
         "location": {
@@ -125,10 +125,10 @@
           ]
         }
       ],
-			"categories": [
-				"show",
-				"music"
-			]
+      "categories": [
+        "show",
+        "music"
+      ]
     },
     {
       "id": "geiropghnjadonbgfdlçgdrkpgmndkrgmndonmgnm",
@@ -168,7 +168,6 @@
             "ends_at": "02:00"
           }
         }
-				
       ],
       "prices": [
         {
@@ -214,10 +213,10 @@
           ]
         }
       ],
-			"categories": [
-				"show",
-				"music"
-			]
+      "categories": [
+        "show",
+        "music"
+      ]
     }
   ],
   "categories": [

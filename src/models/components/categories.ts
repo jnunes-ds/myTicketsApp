@@ -1,4 +1,4 @@
-export type GenresType = 
+export type CategoriesType = 
 	'show'
 	| 'religious'
 	| 'charity'

@@ -18,7 +18,7 @@ export function CategoryButton({ title, imageUrl } : Props){
 				<Container>
 					<ImageContent>
 						<Image source={{
-							uri: imageUrl
+							uri: 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg'
 						}}/>
 					</ImageContent>
 						<Title> {title} </Title>

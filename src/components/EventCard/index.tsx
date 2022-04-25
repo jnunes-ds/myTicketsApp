@@ -4,6 +4,7 @@ import {
 	Container,
 	Image,
 	Title,
+	Content
 } from './styles';
 
 interface Props{
@@ -17,17 +18,16 @@ export function EventCard({ title, imageUrl, onPress }: Props){
 
 		return (
 				<Container onPress={onPress}>
-					{
-						imageUrl
-						?	<Image 
-								source={{
-								uri: imageUrl
-								}}
+						{/* @ts-ignore */}
+						<Image 
+							source={{
+								uri: 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg'
+							}}
 							>
-								<Title> {title} </Title>
-							</Image>
-						: <Title> {title} </Title>
-					}
+							<Content>
+							<Title> {title} </Title>
+					</Content>
+						</Image>
 				</Container>
 		);
 }
