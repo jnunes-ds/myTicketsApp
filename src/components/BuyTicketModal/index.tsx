@@ -22,6 +22,7 @@ import {
 	TotalTitle,
 	TotalValue,
 } from './styles';
+import { IEvent, IValues } from '~/models/event';
 
 export interface DaysListProps {
 	dayName: string;
@@ -36,37 +37,26 @@ interface ITicketType {
 }
 
 interface Props {
-	daysList: DaysListProps[];
+	event: IEvent;
 	isVisible: boolean;
 	setIsVisible(isVisible: boolean): void;
 }
 
-export function BuyTicketModal({ daysList, isVisible, setIsVisible }: Props){
+export function BuyTicketModal({ event, isVisible, setIsVisible }: Props){
 	const { navigate } = useNavigation();
 	const [selectedDay,setSelectedDay] = useState('');
 	const [selectedType, setSelectedType] = useState('');
-	const ticketsTypeList = [
-		{
-			title: 'Área Vip',
-			image_url: ''
-		},
-		{
-			title: 'Camarote',
-			image_url: ''
-		},
-		{
-			title: 'Pista',
-			image_url: ''
-		},
-	];
+	const [value, setValue] = useState<number>(0);
 
 	const handlePickDay = useCallback((weekDay: weekDayType) => {
 		setSelectedDay(weekDay);
 	}, [setSelectedDay]);
 
-	const handlePickTicketType = useCallback((ticketType: string) => {
-		setSelectedType(ticketType);
-	}, [setSelectedType]);
+	const handlePickTicketType = useCallback((value: IValues) => {
+		setSelectedType(value.titketType);
+		setValue(value.value);
+		console.log(value.image_url)
+	}, [setSelectedType, setValue]);
 
 	const handleBuyTicket = useCallback(() => {
 		navigate(PrivateEnum.CONGRATULATIONS);
@@ -81,33 +71,36 @@ export function BuyTicketModal({ daysList, isVisible, setIsVisible }: Props){
 							<Title> Choose an available day</Title>
 							<PickDaysSelectorContainer>
 								{
-									daysList.map(item => (
+									event.days_long.map(item => (
 										<PickDaySelector
-											key={item.weekDay} 
-											isSelected={item.weekDay === selectedDay}
+											key={item.week_day} 
+											isSelected={item.week_day === selectedDay}
 											title={item}
-											onPress={() => handlePickDay(item.weekDay)} 
+											onPress={() => handlePickDay(item.week_day)} 
 										/>
 									))
 								}
 							</PickDaysSelectorContainer>
 							<TypeOfTicketContainer>
 								{
-									ticketsTypeList.map(item => (
-										<TypeOfTicketCard
-											key={item.title} 
-											title={item.title}
-											image_url={item.image_url}
-											onPress={() => handlePickTicketType(item.title)} 
-											selected={selectedType === item.title}
-										/>
+									event.prices.map(item => (
+										item.week_day === selectedDay &&
+										item.values.map(it => (
+											<TypeOfTicketCard
+												key={it.titketType} 
+												title={it.titketType}
+												image_url={it.image_url}
+												onPress={() => handlePickTicketType(it)} 
+												selected={selectedType === it.titketType}
+											/>
+										))
 									))
 								}
 							</TypeOfTicketContainer>
 							<TotalContainer>
 								<TotalContent>
 									<TotalTitle>Total</TotalTitle>
-									<TotalValue>RS 150,00</TotalValue>
+									<TotalValue>RS {value},00</TotalValue>
 								</TotalContent>
 							</TotalContainer>
 							<Button title='Buy Ticket' onPress={handleBuyTicket} type='success' />

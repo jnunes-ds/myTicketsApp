@@ -178,11 +178,13 @@
           "values": [
             {
               "value": 150,
-              "titketType": "camarote"
+              "titketType": "camarote",
+							"image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
             },
             {
               "value": 75,
-              "titketType": "pista"
+              "titketType": "pista",
+							"image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
             }
           ]
         },
@@ -192,11 +194,13 @@
           "values": [
             {
               "value": 150,
-              "titketType": "camarote"
+              "titketType": "camarote",
+							"image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
             },
             {
               "value": 75,
-              "titketType": "pista"
+              "titketType": "pista",
+							"image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
             }
           ]
         },
@@ -206,11 +210,13 @@
           "values": [
             {
               "value": 300,
-              "titketType": "camarote"
+              "titketType": "camarote",
+							"image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
             },
             {
               "value": 150,
-              "titketType": "pista"
+              "titketType": "pista",
+							"image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
             }
           ]
         }

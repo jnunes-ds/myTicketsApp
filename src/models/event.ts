@@ -12,7 +12,7 @@ interface IDuration {
 	ends_at: houtType;
 }
 
-interface IDaysLong {
+export interface IDaysLong {
 	week_day: weekDayType;
 	date: Date;
 	duration: IDuration;
@@ -24,9 +24,10 @@ interface IPrice {
 	values: IValues[];
 }
 
-interface IValues {
+export interface IValues {
 	value: number;
 	titketType: TitketType;
+	image_url: string;
 }
 
 export interface IEvent {

@@ -125,7 +125,7 @@ export function Event(){
 													</DetailsContent>
 											</DetailsContainer>
 											<BuyTicketModal 
-												daysList={daysList as  DaysListProps[]}
+												event={event}
 												isVisible={isBuyTicketModalVisible}
 												setIsVisible={setIsBuyTicketModalVisible}
 											/>
