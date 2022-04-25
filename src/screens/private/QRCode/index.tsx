@@ -1,7 +1,7 @@
 import React from 'react';
 import { BackButton, Button, EventDetailsProps } from '~/components';
 import QRCodeComponent from 'react-native-qrcode-svg';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import {
 		Container,
@@ -10,10 +10,17 @@ import {
 		Code,
 		CodeTitle,
 		QRCodeContainer
-} from './styles'
+} from './styles';
+import { ITicket } from '~/models/ticket';
+
+interface Params {
+	ticket: ITicket;
+}
 
 export function QRCode(){
 	const { goBack } = useNavigation();
+	const route = useRoute();
+	const { ticket } = route.params as Params;
 	const eventDetails: EventDetailsProps = {
 		data: {
 			showTime: '14:30',
@@ -23,10 +30,6 @@ export function QRCode(){
 			description: 'Show do povo de santo contra intolerância religiosa.'
 		}
 	};
-	const ticket ={
-		code: 'fdsfgsrmikgmrs15648-gdfsgfr12189-gvmfdkso-1gvfsg1fesfersw96f1',
-		event: eventDetails.data
-	}
 		return (
 				<Container>
 					<BackButton onPress={goBack} />

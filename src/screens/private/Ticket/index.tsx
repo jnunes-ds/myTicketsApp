@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { BackButton, Button, EventDetails, EventDetailsProps } from '~/components';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { PrivateEnum } from '~/routes/private.enum';
 
 import {
@@ -16,8 +16,14 @@ import {
 	Content
 } from './styles';
 
+interface Params {
+	code: string;
+}
+
 export function Ticket(){
 	const { navigate, goBack } = useNavigation();
+	const route = useRoute();
+	const { code } = route.params as Params;
 	const eventDetails: EventDetailsProps = {
 		data: {
 			showTime: '14:30',
@@ -28,12 +34,12 @@ export function Ticket(){
 		}
 	};
 	const ticket ={
-		code: 'fdsfgsrmikgmrs15648-gdfsgfr12189-gvmfdkso-1gvfsg1fesfersw96f1',
+		code,
 		event: eventDetails.data
 	}
 
 	const handleOpenQRCode = useCallback(() => {
-		navigate(PrivateEnum.QR_CODE, { code: 'fdmpsmf' });
+		navigate(PrivateEnum.QR_CODE, { code });
 	}, [navigate]);
 
 	return (

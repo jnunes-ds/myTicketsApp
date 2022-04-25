@@ -11,7 +11,7 @@ interface IEventServiceResponse extends Omit<AxiosResponse, 'data'>{
 	data: IEvent;
 }
 interface ITicketResponse extends Omit<AxiosResponse, 'data'> {
-	data: ITicket;
+	data: ITicket[];
 }
 interface ICategoriesResponse extends Omit<AxiosResponse, 'data'> {
 	data: CategoriesType[];
@@ -19,8 +19,8 @@ interface ICategoriesResponse extends Omit<AxiosResponse, 'data'> {
 
 interface IEventsService {
 	getEvents(): Promise<IEventsServiceResponse>;
-	getTicketsByUserId(userId: string): Promise<ITicket>;
-	buyEventTicket(ticket: ITicket): Promise<ITicket>;
+	getTicketsByUserId(userId: string): Promise<ITicketResponse>;
+	buyEventTicket(ticket: ITicket): Promise<ITicketResponse>;
 	getCategories(): Promise<ICategoriesResponse>;
 	getEventById(eventId: string): Promise<IEventServiceResponse>;
 }
@@ -33,10 +33,10 @@ class EventsService implements IEventsService {
 	getEventById(eventId: string): Promise<IEventServiceResponse> {
 		throw new Error("Method not implemented.");
 	}
-	getTicketsByUserId(userId: string): Promise<ITicket> {
+	getTicketsByUserId(userId: string): Promise<ITicketResponse> {
 		throw new Error("Method not implemented.");
 	}
-	buyEventTicket(ticket: ITicket): Promise<ITicket> {
+	buyEventTicket(ticket: ITicket): Promise<ITicketResponse> {
 		throw new Error("Method not implemented.");
 	}
 	getCategories(): Promise<ICategoriesResponse> {

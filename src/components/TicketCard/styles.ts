@@ -19,6 +19,14 @@ export const EventImage = styled.ImageBackground`
 	align-items: center;
 `;
 
+export const Content = styled.View`
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.25);
+`;
+
 export const EventName = styled.Text`
 	${({ theme }) => css`
 		font-family: ${theme.fonts.family.secondaryBold};

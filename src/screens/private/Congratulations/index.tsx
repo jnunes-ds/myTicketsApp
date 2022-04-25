@@ -12,18 +12,24 @@ import {
 } from './styles';
 import { SvgSuccess } from './components/SvgSuccess';
 import { BackButton, Button } from '~/components';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { PrivateEnum } from '~/routes/private.enum';
+
+interface Params {
+	code: string;
+}
 
 export function Congratulations(){
 	const { navigate } = useNavigation();
+	const route = useRoute();
+	const { code } = route.params as Params;
 	const eventName = 'Show contra a intolerância religiosa';
 	const dayName = 'Sat';
 	const startsAt = '15:00';
 	const endsAt = '23:00';
 
 	const handleOpenTicket = useCallback(() => {
-		navigate(PrivateEnum.TICKET, { ticket_id: 'fdsgsgs' });
+		navigate(PrivateEnum.TICKET, { code });
 	}, [navigate]);
 
 	const handleBackToHome = useCallback(() => {

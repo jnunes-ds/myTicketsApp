@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BackButton, TicketCard } from '~/components';
 import { ITicket } from '~/models/ticket';
+import { useAuth } from '~/hooks/Auth';
 
 import {
 		Container,
@@ -9,60 +10,53 @@ import {
 		TicketCardLit,
 		TicketCardSeparator
 } from './styles';
+import { Alert } from 'react-native';
+import EventsService from '~/services/Events';
 
 export function MyTickets(){
-	const ticketsList: ITicket[] = [
-		{
-			code: "136defs8gs1g2s3g1rs6g1r5s61g",
-			event_id: "geiropghnjadongpgmrsapkgjnm",
-			event_name: "Show dos menino bom",
-			user_id: "fndkjsopfkoffmipewfme",
-			chosen_day: "Sat",
-			currency: "BRL",
-			event_url: 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg',
-			value: 150,
-			local: {
-				address:"Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
-				location: {
-					latitude: -12.923677906750054,
-					longitude: -38.36045476631343
-				}
+	const [loading, setLoading] = useState<boolean>(true);
+	const [myTickets, setMyTickets] = useState<ITicket[]>([]);
+	const { user } = useAuth();
+
+	useEffect(() => {
+		getMyTickets();
+	}, []);
+
+	useEffect(() => {
+		if (myTickets.length) setLoading(false);
+	}, [myTickets]);
+
+	const getMyTickets = async () => {
+		try {
+			const response = await EventsService.getTicketsByUserId(user.id);
+
+			if (response) {
+				setMyTickets(response.data);
 			}
-		},
-		{
-			code: "136defs8gs1g2s3g1rs6g1r5s61g",
-			event_id: "geiropghnjadongpgmrsapkgjnm",
-			event_name: "Show dos menino bom",
-			user_id: "fndkjsopfkoffmipewfme",
-			chosen_day: "Sat",
-			currency: "BRL",
-			event_url: 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg',
-			value: 150,
-			local: {
-				address:"Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
-				location: {
-					latitude: -12.923677906750054,
-					longitude: -38.36045476631343
-				}
-			}
+		} catch (error) {
+			console.error(error);
+			Alert.alert('Atenção', 'Não foi possível encontrar os seus tickets');
 		}
-	];
+	}
 
 		return (
 				<Container>
 					<BackButton onPress={() => {}} />
 						<Title> My Tickets</Title>
-						<TicketCardListContainer>
-							<TicketCardLit
-								data={ticketsList}
-								renderItem={({item}) => (
-									<>
-										<TicketCard data={item as ITicket}  />
-										<TicketCardSeparator/>
-									</>
-								)}
-							/>
-						</TicketCardListContainer>
+						{
+							!loading &&
+							<TicketCardListContainer>
+								<TicketCardLit
+									data={myTickets}
+									renderItem={({item}) => (
+										<>
+											<TicketCard data={item as ITicket}  />
+											<TicketCardSeparator/>
+										</>
+									)}
+								/>
+							</TicketCardListContainer>
+						}
 				</Container>
 		);
 }

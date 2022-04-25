@@ -5,6 +5,7 @@ import { ILocal } from './components/local';
 import { currencysType } from "./components/currency";
 
 export interface ITicket {
+	id: string;
 	code: string;
 	event_id: string;
 	event_name:string;

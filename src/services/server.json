@@ -46,7 +46,7 @@
       "name": "Show dos menino bom",
       "company_id": "ndfjoknfdjksofdspfm",
       "company_name": "Gustavo Almeida",
-			"event_photo_url": "https://t.ctcdn.com.br/n-xDEPJrW6smpfkbvjP--Ou5E2U=/1024x0/smart/filters:format(webp)/i393775.jpeg",
+      "event_photo_url": "https://t.ctcdn.com.br/n-xDEPJrW6smpfkbvjP--Ou5E2U=/1024x0/smart/filters:format(webp)/i393775.jpeg",
       "description": "Um show pra ficar na memória",
       "local": {
         "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
@@ -125,17 +125,17 @@
           ]
         }
       ],
-			"categories": [
-				"show",
-				"music"
-			]
+      "categories": [
+        "show",
+        "music"
+      ]
     },
     {
       "id": "geiropghnjadonbgfdlçgdrkpgmndkrgmndonmgnm",
       "name": "Exaltassamba",
       "company_id": "ndfjoknfdjksofdspfm",
       "company_name": "Gustavo Almeida",
-			"event_photo_url": "https://www.cifrasdesamba.com.br/wp-content/uploads/2015/08/exaltasamba.jpg",
+      "event_photo_url": "https://www.cifrasdesamba.com.br/wp-content/uploads/2015/08/exaltasamba.jpg",
       "description": "Um show pra exaltar o samba!",
       "local": {
         "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
@@ -169,7 +169,6 @@
             "ends_at": "02:00"
           }
         }
-				
       ],
       "prices": [
         {
@@ -179,12 +178,12 @@
             {
               "value": 150,
               "titketType": "camarote",
-							"image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
+              "image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
             },
             {
               "value": 75,
               "titketType": "pista",
-							"image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
+              "image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
             }
           ]
         },
@@ -195,12 +194,12 @@
             {
               "value": 150,
               "titketType": "camarote",
-							"image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
+              "image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
             },
             {
               "value": 75,
               "titketType": "pista",
-							"image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
+              "image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
             }
           ]
         },
@@ -211,20 +210,20 @@
             {
               "value": 300,
               "titketType": "camarote",
-							"image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
+              "image_url": "https://internacional.s3.sa-east-1.amazonaws.com/brio/BRIO_20072019__0360.jpg"
             },
             {
               "value": 150,
               "titketType": "pista",
-							"image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
+              "image_url": "https://f.i.uol.com.br/fotografia/2019/11/05/15729835355dc1d2efabe3b_1572983535_3x2_md.jpg"
             }
           ]
         }
       ],
-			"categories": [
-				"show",
-				"music"
-			]
+      "categories": [
+        "show",
+        "music"
+      ]
     }
   ],
   "categories": [
@@ -242,20 +241,25 @@
   ],
   "tickets": [
     {
-      "code": "136defs8gs1g2s3g1rs6g1r5s61g",
-      "event_id": "geiropghnjadongpgmrsapkgjnm",
-      "event_name": "Show dos menino bom",
-      "user_id": "fndkjsopfkoffmipewfme",
-      "chosen_day": "Sat",
-      "currency": "BRL",
-      "value": 150,
-      "local": {
-        "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
-        "location": {
-          "latitude": -12.923677906750054,
-          "longitude": -38.36045476631343
-        }
-      }
+      "ticket": {
+        "id": "728x4",
+        "code": "728x4",
+        "chosen_day": "Thu",
+        "currency": "BRL",
+        "event_id": "geiropghnjadonbgfdlçgdrkpgmndkrgmndonmgnm",
+        "event_name": "Exaltassamba",
+        "local": {
+          "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
+          "location": {
+            "latitude": -12.923677906750054,
+            "longitude": -38.36045476631343
+          }
+        },
+        "user_id": "fndkjsopfkoffmipewfme",
+        "value": 150,
+        "event_url": "https://www.cifrasdesamba.com.br/wp-content/uploads/2015/08/exaltasamba.jpg"
+      },
+      "id": "iFNeD8b"
     }
   ]
 }

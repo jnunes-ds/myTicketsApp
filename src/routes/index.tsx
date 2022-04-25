@@ -16,9 +16,11 @@ declare global {
 			Event: {
 				id: string;
 			};
-			Congratulations: undefined;
+			Congratulations: {
+				code: string;
+			};
 			Ticket: {
-				ticket_id: string;
+				code: string;
 			};
 			Home: undefined;
 			QRCode: {
