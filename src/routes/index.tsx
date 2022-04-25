@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Home } from '~/screens/private/Home';
 import { useThemeHook } from '~/hooks/Theme';
 import { ThemeProvider } from 'styled-components';
-import { routes as PublicRoutes } from './Public.routes';
+import { PublicRoutes } from './Public.routes';
+import { PrivateRoutes } from './Private.routes';
 
 
 export function Routes(){
@@ -17,7 +18,7 @@ export function Routes(){
 					backgroundColor={'transparent'} 
 					barStyle={chosenTheme}
 				/>
-				<PublicRoutes />
+				<PrivateRoutes />
 			</NavigationContainer>
 		</ThemeProvider>
 	)

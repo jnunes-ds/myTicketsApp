@@ -15,7 +15,7 @@ declare global {
 	}
 }
 
-export function routes(){
+export function PublicRoutes(){
 
 		return (
 				<Stack.Navigator screenOptions={{ headerShown: false }} >

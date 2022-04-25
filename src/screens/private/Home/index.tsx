@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, ListRenderItem } from 'react-native';
+// @ts-ignore
+import Feather from 'react-native-vector-icons/dist/Feather';
 
 import {
 	Container,
@@ -14,6 +15,7 @@ import { useThemeHook } from '~/hooks/Theme';
 import { CategoryButton } from '../../../components/CategoryButton/index';
 import { EventCard } from '../../../components/EventCard/index';
 import { SearchButton, MenuButton } from '~/components';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Props {
   title: string;
@@ -64,7 +66,9 @@ export function Home() {
     <Container>
 			<Header>
 				<MenuButton onPress={() => {}} />
-				<SearchButton onPress={() => {}} />
+				<TouchableOpacity onPress={() => {}}>
+					<Feather name="search" size={25} />
+				</TouchableOpacity>
 			</Header>
 			<Content 
 				showsVerticalScrollIndicator={false}
