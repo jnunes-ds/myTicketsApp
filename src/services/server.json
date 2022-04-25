@@ -2,10 +2,11 @@
   "users": [
     {
       "id": "fndkjsopfkoffmipewfme",
-      "name": "Junior Nunes",
+      "name": "Junior Nunes Júnior",
       "email": "junior@mail.com",
       "username": "Junior",
       "cpf": "12345678910",
+      "password": "123456",
       "bank": {
         "holderName": "Junior Nunes",
         "holderCpf": "12345678910",
