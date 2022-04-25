@@ -10,8 +10,12 @@ interface IEventsServiceResponse extends Omit<AxiosResponse, 'data'>{
 interface IEventServiceResponse extends Omit<AxiosResponse, 'data'>{
 	data: IEvent;
 }
-interface ITicketResponse extends Omit<AxiosResponse, 'data'> {
+interface ITicketsResponse extends Omit<AxiosResponse, 'data'> {
 	data: ITicket[];
+}
+
+interface ITicketResponse extends Omit<AxiosResponse, 'data'> {
+	data: ITicket;
 }
 interface ICategoriesResponse extends Omit<AxiosResponse, 'data'> {
 	data: CategoriesType[];
@@ -19,10 +23,11 @@ interface ICategoriesResponse extends Omit<AxiosResponse, 'data'> {
 
 interface IEventsService {
 	getEvents(): Promise<IEventsServiceResponse>;
-	getTicketsByUserId(userId: string): Promise<ITicketResponse>;
+	getTicketsByUserId(userId: string): Promise<ITicketsResponse>;
 	buyEventTicket(ticket: ITicket): Promise<ITicketResponse>;
 	getCategories(): Promise<ICategoriesResponse>;
 	getEventById(eventId: string): Promise<IEventServiceResponse>;
+	getTicketById(ticketId: string): Promise<ITicketResponse>;
 }
 
 class EventsService implements IEventsService {
@@ -33,7 +38,7 @@ class EventsService implements IEventsService {
 	getEventById(eventId: string): Promise<IEventServiceResponse> {
 		throw new Error("Method not implemented.");
 	}
-	getTicketsByUserId(userId: string): Promise<ITicketResponse> {
+	getTicketsByUserId(userId: string): Promise<ITicketsResponse> {
 		throw new Error("Method not implemented.");
 	}
 	buyEventTicket(ticket: ITicket): Promise<ITicketResponse> {
@@ -42,10 +47,12 @@ class EventsService implements IEventsService {
 	getCategories(): Promise<ICategoriesResponse> {
 		throw new Error("Method not implemented.");
 	}
+	getTicketById(ticketId: string): Promise<ITicketResponse> {
+		throw new Error("Method not implemented.");
+	}
 
 	// IMPLEMENTING METHODS
 	public static async getEvents(): Promise<IEventsServiceResponse> {
-		console.log('eita');
 		return await api.get('/events');
 	}
 
@@ -53,17 +60,20 @@ class EventsService implements IEventsService {
 		return api.get(`/events/${eventId}`);
 	}
 
-	public static async getTicketsByUserId(userId: string): Promise<ITicketResponse> {
+	public static async getTicketsByUserId(userId: string): Promise<ITicketsResponse> {
 		return await api.get(`/tickets?user_id${userId}`);
 	}
 
 	public static async buyEventTicket(ticket: ITicket): Promise<ITicketResponse> {
-		return await api.post('/tickets', { ticket });
+		return await api.post('/tickets', ticket);
 	}
 
-	
 	public static async getCategories(): Promise<ICategoriesResponse> {
 		return await api.get('/categories');
+	}
+
+	public static async getTicketById(ticketId: string): Promise<ITicketResponse> {
+		return await api.get(`/tickets/${ticketId}`);
 	}
 }
 

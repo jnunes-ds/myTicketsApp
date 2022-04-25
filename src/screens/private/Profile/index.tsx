@@ -58,13 +58,11 @@ export function Profile(){
 							control={control} 
 							title='Name'
 							name='name'
-							error='Error'
 						/>
 						<Input 
 							control={control}
 							title='Username'
 							name='username'
-							error='Error'
 						/>
 						<Button 
 							onPress={() => {}}

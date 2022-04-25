@@ -14,13 +14,13 @@ import {
 import { ITicket } from '~/models/ticket';
 
 interface Params {
-	ticket: ITicket;
+	code: ITicket;
 }
 
 export function QRCode(){
 	const { goBack } = useNavigation();
 	const route = useRoute();
-	const { ticket } = route.params as Params;
+	const { code } = route.params as Params;
 	const eventDetails: EventDetailsProps = {
 		data: {
 			showTime: '14:30',
@@ -35,11 +35,11 @@ export function QRCode(){
 					<BackButton onPress={goBack} />
 					<CodeContainer onPress={() => {}} >
 						<CodeTitle>Ticket Code</CodeTitle>
-						<Code>{ticket.code}</Code>
+						<Code>{code}</Code>
 					</CodeContainer>
 					<QRCodeContainer>
 						<QRCodeComponent 
-							value={ticket.code}
+							value={code}
 							color="black"
 							backgroundColor="white"
 							logoSize={338}

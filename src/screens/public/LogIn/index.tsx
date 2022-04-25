@@ -29,8 +29,6 @@ export function LogIn(){
 	} = useForm();
 
 	const onSubmit = useCallback( async (formData: ISignInProps) => {
-		console.log(':::::FORM DATA:::::');
-		console.log(formData);
 		await logIn({email: formData.email, password: formData.password});
 		
 	}, [logIn]);
@@ -49,14 +47,12 @@ export function LogIn(){
 					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
-					error="Erro"
 				/>
 				<MyInput 
 					title='password'
 					control={control}
 					name='password'
 					isPasswordInput
-					error="Erro"
 				/>
 				<Button 
 					title='Log In'

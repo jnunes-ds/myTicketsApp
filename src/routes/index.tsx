@@ -7,6 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { PublicRoutes } from './Public.routes';
 import { PrivateRoutes } from './Private.routes';
 import { useAuth } from '~/hooks/Auth';
+import { ITicket } from '~/models/ticket';
 
 declare global {
 	namespace ReactNavigation {
@@ -21,6 +22,7 @@ declare global {
 			};
 			Ticket: {
 				code: string;
+				ticket: ITicket;
 			};
 			Home: undefined;
 			QRCode: {

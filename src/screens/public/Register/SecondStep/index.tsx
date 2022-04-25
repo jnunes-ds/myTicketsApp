@@ -26,14 +26,12 @@ export function SecondStep({ control, onNextStep }: Props){
 					title='Name' 
 					control={control}
 					name='name'
-					error="Erro"
 				/>
 				<MyInput
 					title='CPF' 
 					control={control}
 					name='cpf'
 					keyboardType='number-pad'
-					error="Erro"
 				/>
 				<Button 
 					title='Next'

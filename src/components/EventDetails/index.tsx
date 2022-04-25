@@ -1,6 +1,7 @@
 import React from 'react';
 import { IEvent } from '~/models/event';
 import { DetailItem } from '../DetailItem';
+import { ITicket } from '../../models/ticket';
 
 import {
 	DetailsContainer,

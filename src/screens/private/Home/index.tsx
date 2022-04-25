@@ -82,13 +82,11 @@ export function Home() {
 				})
 			});
 			const tempCurrentUsedEventsArray = new Array(...tempCurrentUsedEvents);
-			console.log('TEMP CURRENT CATEGORIES ARRAY', tempCurrentUsedEventsArray);
 			setCurrentUserCategories(tempCurrentUsedEventsArray);
 		}
 	}, [events, categories]);
 
 	useEffect(() => {
-		console.log(':::::EVENTS:::::', events);
 		if(currendUsedCategories.length && events.length) {
 			setLoading(false);
 		}
@@ -98,7 +96,6 @@ export function Home() {
 		try {
 			const response = await EventsService.getEvents();
 			if (response) {
-				console.log(':::::RESPONSE > DATA:::::', response.data);
 				setEvents(response.data);
 			}
 		} catch (error) {
@@ -134,7 +131,6 @@ export function Home() {
   return (
     <Container>
 			<Header>
-				<MenuButton onPress={() => {}} />
 				<TouchableOpacity onPress={() => {}}>
 					<Feather name="search" size={25} />
 				</TouchableOpacity>

@@ -60,7 +60,6 @@ export function BuyTicketModal({ event, isVisible, setIsVisible }: Props){
 	const handlePickTicketType = useCallback((value: IValues) => {
 		setSelectedType(value.titketType);
 		setValue(value.value);
-		console.log(value.image_url)
 	}, [setSelectedType, setValue]);
 
 	const handleBuyTicket = useCallback(async () => {
@@ -78,7 +77,6 @@ export function BuyTicketModal({ event, isVisible, setIsVisible }: Props){
 				value,
 				event_url: event.event_photo_url
 			} 
-			console.log()
 			const response = await EventsService.buyEventTicket(newTicket);
 
 			if (response) {

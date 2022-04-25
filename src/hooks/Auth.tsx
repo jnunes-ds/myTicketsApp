@@ -23,13 +23,11 @@ function AuthProvider({ children }: Props) {
 
 	async function logIn({ email, password }: ISignInProps) {
 		try {
-			console.log('AQUI')
 			const response = await UserServices.getUser(email, password);
 			if (response) {
-				console.log(response.data);
+				const [User] = response.data;
+				_setUser(User);
 			}
-			const [User] = response.data;
-			_setUser(User);
 		} catch (error) {
 			console.error(error);
 			Alert.alert('Atenção', 'Não foi possível efetuar o login');
@@ -53,7 +51,6 @@ function AuthProvider({ children }: Props) {
 	const register = useCallback( async (user: IUser) => {
 		try {
 			const response = await UserServices.registernewUser(user);
-			console.log(response.data);
 			const [User] = response.data;
 			_setUser(User);
 		} catch (error) {

@@ -29,7 +29,6 @@ export function FirstStep({ control, onNextStep }: Props){
 					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
-					error="Erro"
 				/>
 				<SmallTexts>
 					We need your email for membership transactions. We{'\n'}
@@ -39,7 +38,6 @@ export function FirstStep({ control, onNextStep }: Props){
 					title='Username' 
 					control={control}
 					name='username'
-					error="Erro"
 				/>
 				<MyInput
 					title='Email' 
@@ -47,7 +45,6 @@ export function FirstStep({ control, onNextStep }: Props){
 					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
-					error="Erro"
 				/>
 				<MyInput
 					title='Password' 
@@ -56,7 +53,6 @@ export function FirstStep({ control, onNextStep }: Props){
 					keyboardType='visible-password'
 					autoComplete='password'
 					isPasswordInput
-					error="Erro"
 				/>
 				<Button 
 					title='Next'

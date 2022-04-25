@@ -15,7 +15,6 @@ interface Props extends TextInputProps{
 	name: string;
 	required?: boolean;
 	isPasswordInput?: boolean;
-	error: string;
 }
 
 export function Input({ 
@@ -24,7 +23,6 @@ export function Input({
 	 control,
 	 required = false,
 	 isPasswordInput,
-	 error,
 	 ...rest
 } : Props){
 
@@ -46,10 +44,6 @@ export function Input({
 				name={name}
 				rules={{ required }}
 			/>
-			{
-				error &&
-				<TextError>{ error }</TextError>
-			}
 		</Container>
 	);
 }
