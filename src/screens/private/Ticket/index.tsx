@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { BackButton, Button, EventDetails, EventDetailsProps } from '~/components';
+import { useNavigation } from '@react-navigation/native';
+import { PrivateEnum } from '~/routes/private.enum';
 
 import {
 	Container,
@@ -15,6 +17,7 @@ import {
 } from './styles';
 
 export function Ticket(){
+	const { navigate, goBack } = useNavigation();
 	const eventDetails: EventDetailsProps = {
 		data: {
 			showTime: '14:30',
@@ -29,9 +32,13 @@ export function Ticket(){
 		event: eventDetails.data
 	}
 
+	const handleOpenQRCode = useCallback(() => {
+		navigate(PrivateEnum.QR_CODE, { code: 'fdmpsmf' });
+	}, [navigate]);
+
 	return (
 			<Container>
-				<BackButton onPress={() => {}} />
+				<BackButton onPress={goBack} />
 				<Content showsVerticalScrollIndicator={false} >
 					<DetailsContainer>
 						<DetailsContent>
@@ -52,7 +59,7 @@ export function Ticket(){
 						/>
 						<Button 
 							title='Access QR Code'
-							onPress={() => {}}
+							onPress={handleOpenQRCode}
 							type="success"
 						/>
 						<Button 

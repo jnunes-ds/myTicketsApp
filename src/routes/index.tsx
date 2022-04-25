@@ -7,6 +7,25 @@ import { ThemeProvider } from 'styled-components';
 import { PublicRoutes } from './Public.routes';
 import { PrivateRoutes } from './Private.routes';
 
+declare global {
+	namespace ReactNavigation {
+		interface RootParamList {
+			LogIn: undefined;
+			Register: undefined;
+			Event: {
+				id: string;
+			};
+			Congratulations: undefined;
+			Ticket: {
+				ticket_id: string;
+			};
+			Home: undefined;
+			QRCode: {
+				code: string
+			}
+		}
+	}
+}
 
 export function Routes(){
 	const { theme, chosenTheme } = useThemeHook();

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BackButton, Button, EventDetailsProps } from '~/components';
 import QRCodeComponent from 'react-native-qrcode-svg';
+import { useNavigation } from '@react-navigation/native';
 
 import {
 		Container,
@@ -12,6 +13,7 @@ import {
 } from './styles'
 
 export function QRCode(){
+	const { goBack } = useNavigation();
 	const eventDetails: EventDetailsProps = {
 		data: {
 			showTime: '14:30',
@@ -27,7 +29,7 @@ export function QRCode(){
 	}
 		return (
 				<Container>
-					<BackButton onPress={() => {}} />
+					<BackButton onPress={goBack} />
 					<CodeContainer onPress={() => {}} >
 						<CodeTitle>Ticket Code</CodeTitle>
 						<Code>{ticket.code}</Code>
@@ -46,7 +48,7 @@ export function QRCode(){
 					</QRCodeContainer>
 					<Button 
 						title='OK'
-						onPress={() => {}}
+						onPress={goBack}
 						type="success"
 					/>
 				</Container>

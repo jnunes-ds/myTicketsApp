@@ -15,13 +15,18 @@ import {
 	 Ticket
 } from '~/screens/private';
 import { StatusBar } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Tab = createBottomTabNavigator();
+
+const Stack = createStackNavigator();
 
 export function PrivateRoutes(){
 	const theme = useTheme();
 
-		return (
+	const TabNavigator: React.FC = () => {
+			return (
 			<>
 				<Tab.Navigator
 					screenOptions={({ route }) => ({
@@ -114,6 +119,58 @@ export function PrivateRoutes(){
 						component={Profile}
 					/>
 				</Tab.Navigator>
+
 			</>
+		)
+
+	}
+
+		return (
+					<Stack.Navigator
+						initialRouteName={PrivateEnum.HOME}
+						screenOptions={{
+							headerShown: false
+						}}
+					>
+						<Stack.Screen 
+							name={PrivateEnum.HOME}
+							component={TabNavigator}
+
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.CONGRATULATIONS}
+							component={Congratulations}
+
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.EVENT}
+							component={Event}
+
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.MY_TICKETS}
+							component={MyTickets}
+
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.PROFILE}
+							component={Profile}
+
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.QR_CODE}
+							component={QRCode}
+
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.SEARCH}
+							component={Search}
+						/>
+						<Stack.Screen 
+							name={PrivateEnum.TICKET}
+							component={Ticket}
+
+						/>
+					</Stack.Navigator>
 		);
 }

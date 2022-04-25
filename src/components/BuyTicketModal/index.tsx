@@ -1,9 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import { weekDayType } from '~/models/components/weekDays';
+import { BackButton } from '../BackButton';
 import { Button } from '../Button';
 import { PickDaySelector } from './components/PickDaySelector';
 import { TypeOfTicketCard } from './components/TypeOfTicketCard';
+import { useNavigation } from '@react-navigation/native';
+import { PrivateEnum } from '~/routes/private.enum';
 
 import {
 	Container,
@@ -20,7 +23,7 @@ import {
 	TotalValue,
 } from './styles';
 
-interface DaysListProps {
+export interface DaysListProps {
 	dayName: string;
 	weekDay: weekDayType;
 	startsAt: string;
@@ -34,9 +37,12 @@ interface ITicketType {
 
 interface Props {
 	daysList: DaysListProps[];
+	isVisible: boolean;
+	setIsVisible(isVisible: boolean): void;
 }
 
-export function BuyTicketModal({ daysList }: Props){
+export function BuyTicketModal({ daysList, isVisible, setIsVisible }: Props){
+	const { navigate } = useNavigation();
 	const [selectedDay,setSelectedDay] = useState('');
 	const [selectedType, setSelectedType] = useState('');
 	const ticketsTypeList = [
@@ -62,9 +68,15 @@ export function BuyTicketModal({ daysList }: Props){
 		setSelectedType(ticketType);
 	}, [setSelectedType]);
 
+	const handleBuyTicket = useCallback(() => {
+		navigate(PrivateEnum.CONGRATULATIONS);
+	}, [navigate]);
+
 		return (
-				<Container transparent >
+			
+			<Container visible={isVisible} transparent >
 					<Content>
+						<BackButton onPress={() => setIsVisible(false)} />
 						<Scroll showsVerticalScrollIndicator={false} >
 							<Title> Choose an available day</Title>
 							<PickDaysSelectorContainer>
@@ -98,9 +110,9 @@ export function BuyTicketModal({ daysList }: Props){
 									<TotalValue>RS 150,00</TotalValue>
 								</TotalContent>
 							</TotalContainer>
-							<Button title='Buy Ticket' onPress={() => {}} type='success' />
+							<Button title='Buy Ticket' onPress={handleBuyTicket} type='success' />
 						</Scroll>
 					</Content>
-				</Container>
+			</Container>
 		);
 }

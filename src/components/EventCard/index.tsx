@@ -7,23 +7,27 @@ import {
 } from './styles';
 
 interface Props{
-		title: string;
-		imageUrl: string
+	title: string;
+	imageUrl: string;
+	onPress(): void;
 }
 
 
-export function EventCard({ title, imageUrl }: Props){
+export function EventCard({ title, imageUrl, onPress }: Props){
 
 		return (
-				<Container>
-					{/* @ts-ignore */}
-						<Image 
-							source={{
+				<Container onPress={onPress}>
+					{
+						imageUrl
+						?	<Image 
+								source={{
 								uri: imageUrl
-							}}
-						>
-							<Title> {title} </Title>
-						</Image>
+								}}
+							>
+								<Title> {title} </Title>
+							</Image>
+						: <Title> {title} </Title>
+					}
 				</Container>
 		);
 }

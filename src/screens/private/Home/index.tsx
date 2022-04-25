@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 // @ts-ignore
 import Feather from 'react-native-vector-icons/dist/Feather';
 
@@ -16,6 +16,8 @@ import { CategoryButton } from '../../../components/CategoryButton/index';
 import { EventCard } from '../../../components/EventCard/index';
 import { SearchButton, MenuButton } from '~/components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { PrivateEnum } from '~/routes/private.enum';
 
 interface Props {
   title: string;
@@ -33,6 +35,7 @@ interface RenderItemProps {
 }
 
 export function Home() {
+	const { navigate } = useNavigation();
 	const { setTheme } = useThemeHook();
 
 	const list: List[] = [
@@ -61,6 +64,10 @@ export function Home() {
 	useEffect(() => {
 		setTheme('light');
 	}, []);
+
+	const handleOpenEvent = useCallback((id: string) => {
+		navigate(PrivateEnum.EVENT, { id })
+	}, [navigate]);
 
   return (
     <Container>
@@ -104,7 +111,8 @@ export function Home() {
 												<EventCard
 													key={item.id}
 													imageUrl={item.imageUri}
-													title={item.name} 
+													title={item.name}
+													onPress={() => handleOpenEvent(item.id as unknown as string)}
 												/>
 											);
 										}

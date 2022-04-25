@@ -6,15 +6,6 @@ import { LogIn, Register } from '~/screens/public';
 
 const Stack = createStackNavigator();
 
-declare global {
-	namespace ReactNavigation {
-		interface RootParamList {
-			LogIn: undefined;
-			Register: undefined;
-		}
-	}
-}
-
 export function PublicRoutes(){
 
 		return (

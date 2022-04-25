@@ -6,6 +6,7 @@ import {
 	EventDetails,
 	EventDetailsProps 
 } from '~/components';
+import { useNavigation } from '@react-navigation/native';
 
 import {
 		Container,
@@ -18,9 +19,12 @@ import {
 		DetailsTitle,
 		DetailsContent,
 } from './styles'
+import { DaysListProps } from '~/components/BuyTicketModal';
 
 
 export function Event(){
+	const { goBack } = useNavigation();
+	const [isBuyTicketModalVisible, setIsBuyTicketModalVisible] = useState<boolean>(false);
 	const daysList = [
 		{
 			weekDay: 'Thu',
@@ -53,7 +57,7 @@ export function Event(){
 
 		return (
 				<Container>
-					<BackButton onPress={() => {}} />
+					<BackButton onPress={goBack} />
 					<Content
 						showsVerticalScrollIndicator={false}
 					>
@@ -67,7 +71,7 @@ export function Event(){
 							<Title> Show contra a intolerância religiosa </Title>
 							<SubTitle>Sep 3, 2022</SubTitle>
 							<Button 
-								onPress={() => {}}
+								onPress={() => setIsBuyTicketModalVisible(true)}
 								title="Buy Ticket"
 								type='blue'
 							/>
@@ -79,8 +83,11 @@ export function Event(){
 									/>
 									</DetailsContent>
 							</DetailsContainer>
-							{/* @ts-ignore */}
-							<BuyTicketModal daysList={daysList} />
+							<BuyTicketModal 
+								daysList={daysList as  DaysListProps[]}
+								isVisible={isBuyTicketModalVisible}
+								setIsVisible={setIsBuyTicketModalVisible}
+							/>
 					</Content>
 				</Container>
 		);
