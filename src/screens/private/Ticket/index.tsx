@@ -100,9 +100,9 @@ export function Ticket(){
 					<Content showsVerticalScrollIndicator={false} >
 						<DetailsContainer>
 							<DetailsContent>
-								<EventDetails
+								{/* <EventDetails
 									data={ticket}
-								/>
+								/> */}
 								</DetailsContent>
 						</DetailsContainer>
 						<CodeContainer onPress={() => {}} >
