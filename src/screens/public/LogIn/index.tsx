@@ -13,8 +13,11 @@ import {
 		Footer
 } from './styles'
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '~/hooks/Auth';
+import api from '~/services/api';
 
 export function LogIn(){
+	const { logIn } = useAuth();
 	const { navigate } = useNavigation();
 	const {
 		register,
@@ -25,9 +28,12 @@ export function LogIn(){
 		formState: { errors }
 	} = useForm();
 
-	function onSubmit(formData: ISignInProps) {
-		console.log(formData.login);
-	}
+	const onSubmit = useCallback( async (formData: ISignInProps) => {
+		console.log(':::::FORM DATA:::::');
+		console.log(formData);
+		await logIn({email: formData.email, password: formData.password});
+		
+	}, [logIn]);
 
 	const handleGoToRegisterScreen = useCallback(() => {
 		navigate(PublicEnum.REGISTER);
@@ -40,7 +46,7 @@ export function LogIn(){
 				<MyInput
 					title='Email or username' 
 					control={control}
-					name='login'
+					name='email'
 					keyboardType='email-address'
 					autoComplete='email'
 					error="Erro"
@@ -48,7 +54,7 @@ export function LogIn(){
 				<MyInput 
 					title='password'
 					control={control}
-					name='Password'
+					name='password'
 					isPasswordInput
 					error="Erro"
 				/>

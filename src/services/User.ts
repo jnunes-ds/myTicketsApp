@@ -1,23 +1,34 @@
 import { IUser } from "~/models/user";
 import api from "./api";
 
+interface UserPromise {
+	data: IUser[];
+}
 interface IUserService {
-	getUser(login: string, password: string): Promise<IUser>;
-	updateUser(userId: string, user: IUser): Promise<IUser>;
+	getUser(email: string, password: string): Promise<UserPromise>;
+	updateUser(userId: string, user: IUser): Promise<UserPromise>;
+	registernewUser(user: IUser): Promise<UserPromise>;
 }
 
 class UserServices implements IUserService {
 	// @ts-ignore
-	getUser(login: string, password: string): Promise<IUser> {};
-	public static async getUser(login: string, password: string): Promise<IUser> {
-		return await api.get(`/users?email${login}&password=${password}`);
+	getUser(email: string, password: string): Promise<UserPromise> {};
+	public static async getUser(email: string, password: string): Promise<UserPromise> {
+		const response = await api.get(`/users?email${email}&password=${password}`);
+		return response;
 	};
 	
 	// @ts-ignore
-	async updateUser(userId: string, user: IUser): Promise<void> {};
-	public static async updateUser(userId: string, user: IUser): Promise<void> {
+	updateUser(userId: string, user: IUser): Promise<UserPromise> {};
+	public static async updateUser(userId: string, user: IUser): Promise<UserPromise> {
 		return await api.put(`/users/${userId}`, { user });
 	};
+
+	// @ts-ignore
+	registernewUser(user: IUser): Promise<UserPromise> {}
+	public static async registernewUser(user: IUser): Promise<UserPromise> {
+		return await api.post('/users', { user });
+	}
 };
 
 export default UserServices;

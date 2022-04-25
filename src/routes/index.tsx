@@ -6,6 +6,7 @@ import { useThemeHook } from '~/hooks/Theme';
 import { ThemeProvider } from 'styled-components';
 import { PublicRoutes } from './Public.routes';
 import { PrivateRoutes } from './Private.routes';
+import { useAuth } from '~/hooks/Auth';
 
 declare global {
 	namespace ReactNavigation {
@@ -28,6 +29,7 @@ declare global {
 }
 
 export function Routes(){
+	const { user } = useAuth();
 	const { theme, chosenTheme } = useThemeHook();
 	return(
 		<ThemeProvider theme={theme} >
@@ -37,7 +39,7 @@ export function Routes(){
 					backgroundColor={'transparent'} 
 					barStyle={chosenTheme}
 				/>
-				<PrivateRoutes />
+				{ user?.id ? <PrivateRoutes /> : <PublicRoutes /> }
 			</NavigationContainer>
 		</ThemeProvider>
 	)
