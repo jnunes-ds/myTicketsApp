@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { BackButton, Button, Input as MyInput } from '~/components';
 import { ISignInProps } from '~/models/signin';
+import { PublicEnum } from '~/routes/public.routes.enum';
 
 import {
 		Container,
@@ -11,8 +12,10 @@ import {
 		SmallTexts,
 		Footer
 } from './styles'
+import { useNavigation } from '@react-navigation/native';
 
 export function LogIn(){
+	const { navigate } = useNavigation();
 	const {
 		register,
 		setValue,
@@ -26,9 +29,12 @@ export function LogIn(){
 		console.log(formData.login);
 	}
 
+	const handleGoToRegisterScreen = useCallback(() => {
+		navigate(PublicEnum.REGISTER);
+	}, [navigate]);
+
 	return (
 		<Container>
-			<BackButton onPress={() => {}} />
 			<Title testID='title'>LogIn</Title>
 			<Content>
 				<MyInput
@@ -46,11 +52,6 @@ export function LogIn(){
 					isPasswordInput
 					error="Erro"
 				/>
-				<SmallTexts
-					havUnderlinde
-				>
-					Forgot Password?
-				</SmallTexts>
 				<Button 
 					title='Log In'
 					type='default'
@@ -61,7 +62,7 @@ export function LogIn(){
 						Don’t have an account?
 					</SmallTexts>
 					<TouchableWithoutFeedback
-						onPress={() => {}}
+						onPress={handleGoToRegisterScreen}
 					>
 						<SmallTexts
 							havUnderlinde

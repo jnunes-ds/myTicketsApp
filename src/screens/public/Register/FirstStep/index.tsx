@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
-import { useForm } from 'react-hook-form';
+import { Control, useForm } from 'react-hook-form';
 import { Button, Input as MyInput } from '~/components';
 import { ISignInProps } from '~/models/signin';
 
@@ -10,21 +10,15 @@ import {
 		Content,
 		SmallTexts,
 		Footer
-} from './styles'
+} from './styles';
 
-export function FirstStep(){
-	const {
-		register,
-		setValue,
-		handleSubmit,
-		control,
-		reset,
-		formState: { errors }
-	} = useForm();
+interface Props {
+	control: Control;
+	onNextStep(): void;
+}
 
-	function onSubmit(formData: ISignInProps) {
-		console.log(formData.login);
-	}
+export function FirstStep({ control, onNextStep }: Props){
+	
 
 	return (
 		<Container>
@@ -67,7 +61,7 @@ export function FirstStep(){
 				<Button 
 					title='Next'
 					type='default'
-					onPress={() => {}}
+					onPress={onNextStep}
 				/>
 				<Footer>
 					<SmallTexts>
