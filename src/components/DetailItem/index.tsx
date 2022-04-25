@@ -23,7 +23,7 @@ export function DetailItem({ title, info } : Props){
 							Array.isArray(info)
 								? <InfoContainer>
 										{info.map(item => (
-											<Info>{item}</Info>
+											<Info>{' '} {item}</Info>
 										))}
 									</InfoContainer>
 								: <Info>{info}</Info>

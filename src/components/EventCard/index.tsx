@@ -21,7 +21,7 @@ export function EventCard({ title, imageUrl, onPress }: Props){
 						{/* @ts-ignore */}
 						<Image 
 							source={{
-								uri: 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg'
+								uri: imageUrl ?? 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg'
 							}}
 							>
 							<Content>

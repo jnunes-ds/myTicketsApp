@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { 
 	BackButton,
 	Button,
@@ -6,7 +6,7 @@ import {
 	EventDetails,
 	EventDetailsProps 
 } from '~/components';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import {
 		Container,
@@ -20,11 +20,23 @@ import {
 		DetailsContent,
 } from './styles'
 import { DaysListProps } from '~/components/BuyTicketModal';
+import { IEvent } from '~/models/event';
+import { Alert, View } from 'react-native';
+import EventsService from '~/services/Events';
+import { getMonthByNumber } from '../../../utils/getMonthByNumber';
+
+interface Params {
+	id: string;
+}
 
 
 export function Event(){
-	const { goBack } = useNavigation();
 	const [isBuyTicketModalVisible, setIsBuyTicketModalVisible] = useState<boolean>(false);
+	const [event, setEvent] = useState<IEvent>({} as IEvent);
+	const [loading, setLoading] = useState<boolean>(true);
+	const { goBack } = useNavigation();
+	const route = useRoute();
+	const { id } = route.params as Params;
 	const daysList = [
 		{
 			weekDay: 'Thu',
@@ -55,40 +67,73 @@ export function Event(){
 		}
 	};
 
+	useEffect(() => {
+		getEvent();
+	}, [id]);
+
+	const getEvent = async () => {
+		try {
+			const response = await EventsService.getEventById(id);
+
+			if (response) {
+				setEvent(response.data);
+			}
+		} catch (error) {
+			Alert.alert('Atenção', 'Não foi possível localizar o evento em questão, verifique sua conexão');
+			console.error(error);
+		}
+	}
+
 		return (
 				<Container>
 					<BackButton onPress={goBack} />
-					<Content
-						showsVerticalScrollIndicator={false}
-					>
-						<EventImageContainer>
-							<EventImage 
-								source={{
-									uri: 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg'
-								}}
-							/>
-						</EventImageContainer>
-							<Title> Show contra a intolerância religiosa </Title>
-							<SubTitle>Sep 3, 2022</SubTitle>
-							<Button 
-								onPress={() => setIsBuyTicketModalVisible(true)}
-								title="Buy Ticket"
-								type='blue'
-							/>
-							<DetailsContainer>
-								<DetailsTitle>Details</DetailsTitle>
-								<DetailsContent>
-									<EventDetails
-										data={eventDetails.data}
-									/>
-									</DetailsContent>
-							</DetailsContainer>
-							<BuyTicketModal 
-								daysList={daysList as  DaysListProps[]}
-								isVisible={isBuyTicketModalVisible}
-								setIsVisible={setIsBuyTicketModalVisible}
-							/>
-					</Content>
+					{
+						event &&
+						event.id
+							?	(
+									<Content
+										showsVerticalScrollIndicator={false}
+									>
+										<EventImageContainer>
+											<EventImage 
+												source={{
+													uri: event.event_photo_url ?? 'https://assets.b9.com.br/wp-content/uploads/2021/03/shows-ao-vivo.jpg'
+												}}
+											/>
+										</EventImageContainer>
+											<Title> {event.name} </Title>
+											<SubTitle>
+												{
+													getMonthByNumber(
+														new Date(event.days_long[0].date).getMonth()
+													)
+												} {`${new Date(event.days_long[0].date).getDate()}`}, 
+												{
+													` ${new Date(event.days_long[0].date).getFullYear()}`
+												}
+											</SubTitle>
+											<Button 
+												onPress={() => setIsBuyTicketModalVisible(true)}
+												title="Buy Ticket"
+												type='blue'
+											/>
+											<DetailsContainer>
+												<DetailsContent>
+													<EventDetails
+														data={event}
+													/>
+													</DetailsContent>
+											</DetailsContainer>
+											<BuyTicketModal 
+												daysList={daysList as  DaysListProps[]}
+												isVisible={isBuyTicketModalVisible}
+												setIsVisible={setIsBuyTicketModalVisible}
+											/>
+									</Content>
+							) : (
+								<View />
+							)
+					}
 				</Container>
 		);
 }

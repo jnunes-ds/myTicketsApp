@@ -1,4 +1,5 @@
 import React from 'react';
+import { IEvent } from '~/models/event';
 import { DetailItem } from '../DetailItem';
 
 import {
@@ -16,7 +17,7 @@ export interface DataProps {
 };
 
 export interface EventDetailsProps{
-	data: DataProps;
+	data: IEvent;
 }
 
 export function EventDetails({ data } : EventDetailsProps){
@@ -27,19 +28,19 @@ export function EventDetails({ data } : EventDetailsProps){
 				<DetailsContent>
 					<DetailItem 
 						title='ShowTime'
-						info={data.showTime}
+						info={data.days_long[0].duration.starts_at}
 					/>
 					<DetailItem 
 						title='Address'
-						info={data.Address}
+						info={data.local.address}
 					/>
 					<DetailItem 
 						title='genres'
-						info={data.genres}
+						info={data.categories}
 					/>
 					<DetailItem 
 						title='Value'
-						info={`R$ ${data.value},00`}
+						info={`R$ ${data.prices[0].values[0].value},00`}
 					/>
 					{
 						data.description &&

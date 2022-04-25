@@ -4,27 +4,33 @@ import api from "./api";
 import { ITicket } from '~/models/ticket';
 import { AxiosResponse } from "axios";
 
-interface IEventServiceResponse extends Omit<AxiosResponse, 'data'>{
+interface IEventsServiceResponse extends Omit<AxiosResponse, 'data'>{
 	data: IEvent[];
+}
+interface IEventServiceResponse extends Omit<AxiosResponse, 'data'>{
+	data: IEvent;
 }
 interface ITicketResponse extends Omit<AxiosResponse, 'data'> {
 	data: ITicket;
 }
-
 interface ICategoriesResponse extends Omit<AxiosResponse, 'data'> {
 	data: CategoriesType[];
 }
 
 interface IEventsService {
-	getEvents(): Promise<IEventServiceResponse>;
+	getEvents(): Promise<IEventsServiceResponse>;
 	getTicketsByUserId(userId: string): Promise<ITicket>;
 	buyEventTicket(ticket: ITicket): Promise<ITicket>;
 	getCategories(): Promise<ICategoriesResponse>;
+	getEventById(eventId: string): Promise<IEventServiceResponse>;
 }
 
 class EventsService implements IEventsService {
 	// DECLARING METHODS
-	getEvents(): Promise<IEventServiceResponse> {
+	getEvents(): Promise<IEventsServiceResponse> {
+		throw new Error("Method not implemented.");
+	}
+	getEventById(eventId: string): Promise<IEventServiceResponse> {
 		throw new Error("Method not implemented.");
 	}
 	getTicketsByUserId(userId: string): Promise<ITicket> {
@@ -38,9 +44,13 @@ class EventsService implements IEventsService {
 	}
 
 	// IMPLEMENTING METHODS
-	public static async getEvents(): Promise<IEventServiceResponse> {
+	public static async getEvents(): Promise<IEventsServiceResponse> {
 		console.log('eita');
 		return await api.get('/events');
+	}
+
+	public static async getEventById(eventId: string): Promise<IEventServiceResponse> {
+		return api.get(`/events/${eventId}`);
 	}
 
 	public static async getTicketsByUserId(userId: string): Promise<ITicketResponse> {
