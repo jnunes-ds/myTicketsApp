@@ -1,157 +1,243 @@
 {
-	"users": [
-		{
-			"id": "fndkjsopfkoffmipewfme",
-			"name": "Junior Nunes",
-			"email": "junior@mail.com",
-			"username": "Junior",
-			"cpf": "12345678910",
-			"bank": {
-					"holderName": "Junior Nunes",
-					"holderCpf": "12345678910",
-					"bankName": "Meu Banco",
-					"cardNumber": 424242424242,
-					"agency": 12345,
-					"account": 1234,
-					"digit": 8,
-					"validity": "07/23",
-					"securityNumber": 123
-			}
-		}
-	],
-
-	"companies": [
-		{
-			"id": "ndfjoknfdjksofdspfm",
-			"owner_name": "Gustavo Almeida",
-			"owner_cpf": "4561236841-68",
-			"corporate_name": "Gustavo Almeida - LTDA",
-			"name": "Guga Eventos",
-			"cnpj": 45678922254963,
-			"description": "Diversão pra gente é coisa séria.",
-			"local": {
-				"address": "Av. Tancredo Neves, 450 - Caminho das Árvores, Salvador - BA, 41820-901",
-				"location": {
-					"latitude":-12.978759853615546, 
-					"longitude": -38.461720017225026
-				}
-			},
-			"follower": ["fndkjsopfkoffmipewfme"],
-			"instagram": "@naotenho",
-			"website": "www.naoexiste.com"
-		}
-	],
-
-	"events": [
-		{
-			"id": "geiropghnjadongpgmrsapkgjnm",
-			"name": "Show dos menino bom",
-			"company_id": "ndfjoknfdjksofdspfm",
-			"company_name": "Gustavo Almeida",
-			"description": "Um show pra ficar na memória",
-			"local": {
-				"address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
-				"location": {
-					"latitude": -12.923677906750054, 
-					"longitude": -38.36045476631343
-				}
-			},
-			"days_long": [
-				{
-					"week_day": "Thu",
-					"date": "2022-04-28T00:00:00.000+00:00",
-					"duration":  {
-						"starts_at": "19:00",
-						"ends_at": "23:00"
-					}
-				},{
-					"week_day": "Fri",
-					"date": "2022-04-29T00:00:00.000+00:00",
-					"duration":  {
-						"starts_at": "19:00",
-						"ends_at": "02:00"
-					}
-				},{
-					"week_day": "Sat",
-					"date": "2022-04-28T00:00:00.000+00:00",
-					"duration":  {
-						"starts_at": "15:30",
-						"ends_at": "02:00"
-					}
-				}
-			],
-			"prices": [
-				{
-					"week_day": "Thu",
-					"currency": "BRL",
-					"values": [
-						{
-							"value": 150,
-							"titketType": "camarote"
-						},{
-							"value": 75,
-							"titketType": "pista"
-						}
-					]
-				},{
-					"week_day": "Fri",
-					"currency": "BRL",
-					"values": [
-						{
-							"value": 150,
-							"titketType": "camarote"
-						},{
-							"value": 75,
-							"titketType": "pista"
-						}
-					]
-				},{
-					"week_day": "Sat",
-					"currency": "BRL",
-					"values": [
-						{
-							"value": 300,
-							"titketType": "camarote"
-						},{
-							"value": 150,
-							"titketType": "pista"
-						}
-					]
-				}
-			]
-		}
-	],
-
-	"genres": [
-		"show",
-		"religious",
-		"charity",
-		"academic",
-		"comedy",
-		"childish",
-		"sport",
-		"gastronomy",
-		"technology",
-		"music",
-		"theater"
-	],
-
-	"tickets": [
-		{
-			"code": "136defs8gs1g2s3g1rs6g1r5s61g",
-			"event_id": "geiropghnjadongpgmrsapkgjnm",
-			"event_name": "Show dos menino bom",
-			"user_id": "fndkjsopfkoffmipewfme",
-			"chosen_day": "Sat",
-			"currency": "BRL",
-			"value": 150,
-			"local": {
-				"address":"Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
-				"location": {
-					"latitude": -12.923677906750054,
-					"longitude": -38.36045476631343
-				}
-			}
-		}
-	]
+  "users": [
+    {
+      "id": "fndkjsopfkoffmipewfme",
+      "name": "Junior Nunes",
+      "email": "junior@mail.com",
+      "username": "Junior",
+      "cpf": "12345678910",
+      "bank": {
+        "holderName": "Junior Nunes",
+        "holderCpf": "12345678910",
+        "bankName": "Meu Banco",
+        "cardNumber": 424242424242,
+        "agency": 12345,
+        "account": 1234,
+        "digit": 8,
+        "validity": "07/23",
+        "securityNumber": 123
+      }
+    }
+  ],
+  "companies": [
+    {
+      "id": "ndfjoknfdjksofdspfm",
+      "owner_name": "Gustavo Almeida",
+      "owner_cpf": "4561236841-68",
+      "corporate_name": "Gustavo Almeida - LTDA",
+      "name": "Guga Eventos",
+      "cnpj": 45678922254963,
+      "description": "Diversão pra gente é coisa séria.",
+      "local": {
+        "address": "Av. Tancredo Neves, 450 - Caminho das Árvores, Salvador - BA, 41820-901",
+        "location": {
+          "latitude": -12.978759853615546,
+          "longitude": -38.461720017225026
+        }
+      },
+      "instagram": "@naotenho",
+      "website": "www.naoexiste.com"
+    }
+  ],
+  "events": [
+    {
+      "id": "d6f7c9a4-c433-11ec-9d64-0242ac120002",
+      "name": "Show dos menino bom",
+      "company_id": "ndfjoknfdjksofdspfm",
+      "company_name": "Gustavo Almeida",
+      "description": "Um show pra ficar na memória",
+      "local": {
+        "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
+        "location": {
+          "latitude": -12.923677906750054,
+          "longitude": -38.36045476631343
+        }
+      },
+      "days_long": [
+        {
+          "week_day": "Thu",
+          "date": "2022-04-28T00:00:00.000+00:00",
+          "duration": {
+            "starts_at": "19:00",
+            "ends_at": "23:00"
+          }
+        },
+        {
+          "week_day": "Fri",
+          "date": "2022-04-29T00:00:00.000+00:00",
+          "duration": {
+            "starts_at": "19:00",
+            "ends_at": "02:00"
+          }
+        },
+        {
+          "week_day": "Sat",
+          "date": "2022-04-28T00:00:00.000+00:00",
+          "duration": {
+            "starts_at": "15:30",
+            "ends_at": "02:00"
+          }
+        }
+      ],
+      "prices": [
+        {
+          "week_day": "Thu",
+          "currency": "BRL",
+          "values": [
+            {
+              "value": 150,
+              "titketType": "camarote"
+            },
+            {
+              "value": 75,
+              "titketType": "pista"
+            }
+          ]
+        },
+        {
+          "week_day": "Fri",
+          "currency": "BRL",
+          "values": [
+            {
+              "value": 150,
+              "titketType": "camarote"
+            },
+            {
+              "value": 75,
+              "titketType": "pista"
+            }
+          ]
+        },
+        {
+          "week_day": "Sat",
+          "currency": "BRL",
+          "values": [
+            {
+              "value": 300,
+              "titketType": "camarote"
+            },
+            {
+              "value": 150,
+              "titketType": "pista"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "geiropghnjadonbgfdlçgdrkpgmndkrgmndonmgnm",
+      "name": "Exaltassamba",
+      "company_id": "ndfjoknfdjksofdspfm",
+      "company_name": "Gustavo Almeida",
+      "description": "Um show pra exaltar o samba!",
+      "local": {
+        "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
+        "location": {
+          "latitude": -12.923677906750054,
+          "longitude": -38.36045476631343
+        }
+      },
+      "days_long": [
+        {
+          "week_day": "Thu",
+          "date": "2022-05-24T00:00:00.000+00:00",
+          "duration": {
+            "starts_at": "19:00",
+            "ends_at": "23:00"
+          }
+        },
+        {
+          "week_day": "Fri",
+          "date": "2022-05-25T00:00:00.000+00:00",
+          "duration": {
+            "starts_at": "19:00",
+            "ends_at": "02:00"
+          }
+        },
+        {
+          "week_day": "Sat",
+          "date": "2022-05-26T00:00:00.000+00:00",
+          "duration": {
+            "starts_at": "15:30",
+            "ends_at": "02:00"
+          }
+        }
+      ],
+      "prices": [
+        {
+          "week_day": "Thu",
+          "currency": "BRL",
+          "values": [
+            {
+              "value": 150,
+              "titketType": "camarote"
+            },
+            {
+              "value": 75,
+              "titketType": "pista"
+            }
+          ]
+        },
+        {
+          "week_day": "Fri",
+          "currency": "BRL",
+          "values": [
+            {
+              "value": 150,
+              "titketType": "camarote"
+            },
+            {
+              "value": 75,
+              "titketType": "pista"
+            }
+          ]
+        },
+        {
+          "week_day": "Sat",
+          "currency": "BRL",
+          "values": [
+            {
+              "value": 300,
+              "titketType": "camarote"
+            },
+            {
+              "value": 150,
+              "titketType": "pista"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "genres": [
+    "show",
+    "religious",
+    "charity",
+    "academic",
+    "comedy",
+    "childish",
+    "sport",
+    "gastronomy",
+    "technology",
+    "music",
+    "theater"
+  ],
+  "tickets": [
+    {
+      "code": "136defs8gs1g2s3g1rs6g1r5s61g",
+      "event_id": "geiropghnjadongpgmrsapkgjnm",
+      "event_name": "Show dos menino bom",
+      "user_id": "fndkjsopfkoffmipewfme",
+      "chosen_day": "Sat",
+      "currency": "BRL",
+      "value": 150,
+      "local": {
+        "address": "Av. Luís Viana Filho, 1590 - Itapuã, Salvador - BA, 41730-101",
+        "location": {
+          "latitude": -12.923677906750054,
+          "longitude": -38.36045476631343
+        }
+      }
+    }
+  ]
 }
