@@ -13,9 +13,7 @@ import {
 import { View } from 'react-native';
 
 interface Props {
-	data: {
-		ticket: ITicket;
-	};
+	data: ITicket;
 }
 
 export function TicketCard({ data } : Props){
@@ -25,13 +23,12 @@ export function TicketCard({ data } : Props){
 	useEffect(() => {
 		if (
 			data &&
-			data.ticket &&
-			data.ticket.id
+			data.id
 		) setLoading(false);
 	}, [data]);
 
 	const handleOpenTicket = useCallback(() => {
-		navigate(PrivateEnum.TICKET, { code: data.ticket.code });
+		navigate(PrivateEnum.TICKET, { code: data.code, ticket: data });
 	}, [navigate]);
 
 	if (loading) {
@@ -45,12 +42,12 @@ export function TicketCard({ data } : Props){
 					{/* @ts-ignore */}
 					<EventImage
 						source={{
-							uri: data?.ticket?.event_url
+							uri: data?.event_url
 						}}
 					>
 						<Content>
 							<EventName>
-								{data?.ticket?.event_name}
+								{data?.event_name}
 							</EventName>
 						</Content>
 					</EventImage>
