@@ -42,7 +42,7 @@ export function Home() {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [categories, setCategories] = useState<CategoriesType[]>([]);
 	const [events, setEvents] = useState<Array<IEvent>>([]);
-	const [currendUsedCategories, setCurrentUserCategories] = useState<IEvent[]>([]);
+	const [currendUsedCategories, setCurrentUserCategories] = useState<CategoriesType[]>([]);
 	const { navigate } = useNavigation();
 	const { setTheme } = useThemeHook();
 
@@ -74,16 +74,16 @@ export function Home() {
 	}, []);
 
 	useEffect(() => {
-		const tempCurrentUsedEvents: Set<IEvent> = new Set([]);
+		const tempCurrentUsedEvents: Set<CategoriesType> = new Set([]);
 		if (categories.length && categories.length) {
 			events.forEach(item => {
 				item.categories.forEach(i => {
 					tempCurrentUsedEvents.add(i)
 				})
 			});
-			const tempCurrentUsedEventsArray = new Array(tempCurrentUsedEvents);
+			const tempCurrentUsedEventsArray = new Array(...tempCurrentUsedEvents);
 			console.log('TEMP CURRENT CATEGORIES ARRAY', tempCurrentUsedEventsArray);
-			setCurrentUserCategories(new Array(...tempCurrentUsedEvents));
+			setCurrentUserCategories(tempCurrentUsedEventsArray);
 		}
 	}, [events, categories]);
 
@@ -171,7 +171,7 @@ export function Home() {
 										if (
 											item &&
 											item.categories &&
-											item.categories.includes(ITEM)
+											item.categories.includes(ITEM as unknown as CategoriesType)
 										) {
 											return (
 												<EventCard
